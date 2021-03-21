@@ -9,6 +9,9 @@ const App = () => {
   const [pmID, setPmID] = useState(null);
   const [pmSpritesURL, setPmSpritesURL] = useState(null);
 
+  // TODO: use pokeapi-js-wrapper to cache pmdex locally
+  // https://github.com/PokeAPI/pokeapi-js-wrapper
+
   useEffect(() => {
     // Hardcoded for now
     fetch("https://pokeapi.co/api/v2/pokemon/778")
