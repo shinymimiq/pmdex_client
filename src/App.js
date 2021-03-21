@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import {useState, useEffect } from 'react'
+import PokemonItem from './Components/PokemonItem';
 
 const App = () => {
   const [pmName, setPmName] = useState(null);
@@ -36,8 +37,7 @@ const App = () => {
           Learn React
         </a>
       </header> */}
-      <p className="App-intro">#{pmID} - {pmName}</p>
-      <img src={pmSpritesURL} alt={pmName}></img>
+      <PokemonItem pm_name={pmName} pm_sprite_url={pmSpritesURL} pm_id={pmID}></PokemonItem>
     </div>
   );
 }

@@ -1,8 +1,8 @@
-const PokemonItem = ({pm_name, pm_sprite_url}) => {
+const PokemonItem = ({pm_name, pm_id, pm_sprite_url}) => {
   return (
     <div>
-      <img ref={pm_sprite_url} alt={pm_name}></img>
-      <h3>{pm_name}</h3>
+      <img src={pm_sprite_url} alt={pm_name}></img>
+      <h3>#{pm_id} - {pm_name}</h3>
     </div>
   )
 }
