@@ -3,6 +3,7 @@ import './App.css';
 
 import {useState, useEffect } from 'react'
 import PokemonItem from './Components/PokemonItem';
+import Pokeball from './Components/Pokeball';
 
 const App = () => {
   const [pmName, setPmName] = useState(null);
@@ -40,6 +41,7 @@ const App = () => {
           Learn React
         </a>
       </header> */}
+      <Pokeball/>
       <PokemonItem pm_name={pmName} pm_sprite_url={pmSpritesURL} pm_id={pmID}></PokemonItem>
     </div>
   );

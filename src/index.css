@@ -1,13 +1,41 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body,
+html {
+  width: 100%;
+  height: 100%;
+  background: lightsteelblue;
+}
+.pokeball {
+  width: 200px;
+  height: 200px;
+  margin: 50px auto;
+  position: relative;
+}
+.pokeball div {
+  height: 100px;
+  width: 200px;
+}
+.upside {
+  background: red;
+  border-radius: 50px 50px 0 0;
+  border-bottom: 5px solid black;
+}
+.downside {
+  background: white;
+  border-radius: 0 0 50px 50px;
+  border-top: 5px solid black;
+}
+.pokeball span {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border: 10px solid black;
+  box-sizing: border-box;
+  position: absolute;
+  left: calc(50% - 25px);
+  top: calc(50% - 20px);
 }
