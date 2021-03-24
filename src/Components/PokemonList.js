@@ -1,15 +1,18 @@
+import Pokemon from "./Pokemon";
+
 const PokemonList = (props) => {
   const results = props.results;
-  const pmList = results.map((pm) => 
-    <li>{pm.name}</li>
-  );
+  const P = props.P;
+  const pmList = results.map((pm) => (
+    <li key={pm.name}>
+      <Pokemon pmName={pm.name} P={P} />
+    </li>
+  ));
   return (
     <div>
-      <ul>
-        {pmList}
-      </ul>
+      <ul>{pmList}</ul>
     </div>
-  )
-}
+  );
+};
 
-export default PokemonList
+export default PokemonList;

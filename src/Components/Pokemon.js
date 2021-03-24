@@ -1,10 +1,31 @@
-const PokemonItem = ({pm_name, pm_id, pm_sprite_url}) => {
+import { useState, useEffect } from "react";
+
+const Pokemon = ({ pmName, P }) => {
+  const [pm, setPM] = useState(null);
+
+  useEffect(() => {
+    let res;
+    (async () => {
+      try {
+        res = await P.getPokemonByName(pmName);
+      } catch (e) {
+        console.log(e);
+      }
+      setPM(res);
+    })();
+  }, [P, pmName]);
+
   return (
     <div>
-      <img src={pm_sprite_url} alt={pm_name}></img>
-      <h3>#{pm_id} - {pm_name}</h3>
+      {/* make sure pm is not null */}
+      {pm && <img src={pm.sprites.front_default} alt={pm.species.name}></img>}
+      {pm && (
+        <h3>
+          #{pm.id} - {pm.species.name}
+        </h3>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default PokemonItem
+export default Pokemon;

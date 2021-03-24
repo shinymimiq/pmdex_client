@@ -1,14 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-import {useState, useEffect } from 'react'
-import Pokemon from './Components/Pokemon';
-import Pokeball from './Components/Pokeball';
-import PokemonList from './Components/PokemonList';
+import { useState, useEffect } from "react";
+import Pokeball from "./Components/Pokeball";
+import PokemonList from "./Components/PokemonList";
+
+const Pokedex = require("pokeapi-js-wrapper");
+const P = new Pokedex.Pokedex();
 
 const App = () => {
-  const Pokedex = require("pokeapi-js-wrapper");
-  const P = new Pokedex.Pokedex();
   // const [pmName, setPmName] = useState(null);
   // const [pmID, setPmID] = useState(null);
   // const [pmSpritesURL, setPmSpritesURL] = useState(null);
@@ -37,30 +36,29 @@ const App = () => {
 
     const interval = {
       offset: 24,
-      limit: 20,
-    }
+      limit: 10,
+    };
 
     async function fetchPokemon() {
-      let response = await P.getPokemonsList(interval)
+      let response = await P.getPokemonsList(interval);
       // response = await response.json();
-      setPM(response.results)
-      console.log(response.results)
+      setPM(response.results);
+      // console.log(response.results)
       // setPmID(response.id);
       // setPmName(response.species.name);
       // setPmSpritesURL(response.sprites.front_default);
-    };
+    }
     fetchPokemon();
-  }, [P]); // <-- Have to pass in [] here!
-
+  }, []); // <-- Have to pass in [] here!
 
   return (
     <div className="App">
-      <Pokeball/>
+      <Pokeball />
       <h3> Pokemon lists from #26 - #45</h3>
       {/* <PokemonItem pm_name={pmName} pm_sprite_url={pmSpritesURL} pm_id={pmID}></PokemonItem> */}
-      <PokemonList results={pm}></PokemonList>
+      <PokemonList results={pm} P={P}></PokemonList>
     </div>
   );
-}
+};
 
 export default App;
