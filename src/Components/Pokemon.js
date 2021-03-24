@@ -16,13 +16,13 @@ const Pokemon = ({ pmName, P }) => {
   }, [P, pmName]);
 
   return (
-    <div>
+    <div className='pm-thumbnail'>
       {/* make sure pm is not null */}
       {pm && <img src={pm.sprites.front_default} alt={pm.species.name}></img>}
       {pm && (
-        <h3>
+        <p>
           #{pm.id} - {pm.species.name}
-        </h3>
+        </p>
       )}
     </div>
   );
