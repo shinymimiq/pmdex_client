@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "../iconfont.css"
 
 const Pokemon = ({ pmName, P }) => {
   const [pm, setPM] = useState(null);
@@ -20,9 +21,14 @@ const Pokemon = ({ pmName, P }) => {
       {/* make sure pm is not null */}
       {pm && <img src={pm.sprites.front_default} alt={pm.species.name}></img>}
       {pm && (
+        <div>
         <p>
-          #{pm.id} - {pm.species.name}
+        <em class="iconfont">&#xe625;</em>{pm.id}
         </p>
+        <p>
+          {pm.species.name}
+        </p>
+        </div>
       )}
     </div>
   );
