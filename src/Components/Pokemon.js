@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "../iconfont.css"
+import "../Resources/iconfont.css"
 
 const Pokemon = ({ pmName, P }) => {
   const [pm, setPM] = useState(null);

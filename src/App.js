@@ -21,7 +21,7 @@ const App = () => {
     // };
 
     async function fetchPokemon() {
-      let indexArr = [ ...Array(nationalPMDexCount).keys() ].map( i => i+1);
+      let indexArr = [...Array(nationalPMDexCount).keys()].map((i) => i + 1);
       try {
         // P.getPokemonByName(array_of_ids), it returns a Promise.all(),
         // which is all or nothing. It resolves once all promises in the array resolve,
@@ -33,7 +33,7 @@ const App = () => {
         console.log("balabalbalbala");
       }
       return "Error!!!!!!";
-    };
+    }
 
     async function run() {
       let response = await fetchPokemon();
@@ -46,7 +46,7 @@ const App = () => {
   return (
     <div className="App">
       <Pokeball />
-      <h3> Pokemon lists from #26 - #45</h3>
+      <h3> Pokemon lists from #1 - #151</h3>
       {/* <PokemonItem pm_name={pmName} pm_sprite_url={pmSpritesURL} pm_id={pmID}></PokemonItem> */}
       <PokemonList results={pms} P={P}></PokemonList>
     </div>
