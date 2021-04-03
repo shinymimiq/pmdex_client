@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "../Resources/iconfont.css";
 import PMInfoCard from "./PMInfoCard";
 
@@ -11,10 +11,6 @@ const Pokemon = (props) => {
       full: !prevState.full,
     }));
   };
-
-  // useEffect(() => {
-  //   console.log(props);
-  // }, [props]);
 
   return (
     <div>
