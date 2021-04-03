@@ -48,7 +48,8 @@ const App = () => {
       <Pokeball />
       <h3> Pokemon lists from #1 - #151</h3>
       {/* <PokemonItem pm_name={pmName} pm_sprite_url={pmSpritesURL} pm_id={pmID}></PokemonItem> */}
-      <PokemonList results={pms} P={P}></PokemonList>
+      {pms.length === 0 && <p>Loading</p>}
+      {pms.length > 0 && <PokemonList pms={pms}></PokemonList>}
     </div>
   );
 };
