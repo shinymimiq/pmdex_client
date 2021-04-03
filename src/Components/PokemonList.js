@@ -9,7 +9,7 @@ const PokemonList = ({ pms }) => {
     <Pokemon pm={pm} />
     // </li>
   ));
-  return <div>{pmList}</div>;
+  return <div className="pokemon_list">{pmList}</div>;
 };
 
 export default PokemonList;

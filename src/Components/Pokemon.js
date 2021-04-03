@@ -12,15 +12,15 @@ const Pokemon = (props) => {
     }));
   };
 
-  useEffect(() => {
-    console.log(props);
-  }, [props]);
+  // useEffect(() => {
+  //   console.log(props);
+  // }, [props]);
 
   return (
     <div>
       <div onClick={showPMInfoCard}>
         {/* make sure pm is not null */}
-        {state.full === false && props.pm && (
+        {props.pm && (
           <div className="pm_info">
             <img
               src={props.pm.sprites.front_default}
@@ -34,9 +34,8 @@ const Pokemon = (props) => {
           </div>
         )}
         {state.full === true && props.pm && (
-          <div className="pm_info">
+          <div className="overlay">
             <PMInfoCard pm={props.pm} />
-            {/* <p>This is TEST!</p> */}
           </div>
         )}
       </div>

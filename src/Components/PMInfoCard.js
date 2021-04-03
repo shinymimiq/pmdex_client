@@ -2,7 +2,7 @@
 // Show: Sprites, Name, ID, types, weight, height, abilities.
 const PMInfoCard = (props) => {
   return (
-    <div className="PMInfoCard">
+    <div className="pm_info_full">
       <p>ID: {props.pm.id}</p>
       <p>Name: {props.pm.name}</p>
       <p>Height: {props.pm.height}</p>
