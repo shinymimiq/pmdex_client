@@ -5,7 +5,7 @@ import Pokeball from "./Components/Pokeball";
 import PokemonList from "./Components/PokemonList";
 import apiGen from "./Api/apiGen";
 
-const nationalPMDexCount = 151;
+const nationalPMDexCount = 898;
 
 function promiseGenfetchPokemon(offset=1, limit=nationalPMDexCount) {
   // let indexArr = [...Array(nationalPMDexCount).keys()].map((i) => i + 1);
@@ -22,7 +22,6 @@ const App = () => {
   const [pms, setPMs] = useState([]);
 
   useEffect(() => {
-    
     async function run() {
       let response = []
       try {
@@ -34,14 +33,13 @@ const App = () => {
       console.log(response);
       setPMs(response);
     }
-    // fetchPokemon(1, 20);
     run();
   }, []); // <-- Have to pass in [] here!
 
   return (
     <div className="App">
       <Pokeball />
-      <h3> Pokemon lists from #1 - #151</h3>
+      <h3> PokeDex </h3>
       {/* <PokemonItem pm_name={pmName} pm_sprite_url={pmSpritesURL} pm_id={pmID}></PokemonItem> */}
       {pms.length === 0 && <p>Loading</p>}
       {pms.length > 0 && <PokemonList pms={pms}></PokemonList>}
