@@ -4,11 +4,7 @@ import { useState, useEffect } from "react";
 import Pokeball from "./Components/Pokeball";
 import PokemonList from "./Components/PokemonList";
 import apiGen from "./Api/apiGen";
-// import Axios from "axios"
-// const Axios = require("axios");
 
-const Pokedex = require("pokeapi-js-wrapper");
-const P = new Pokedex.Pokedex();
 const nationalPMDexCount = 151;
 
 function promiseGenfetchPokemon(offset=1, limit=nationalPMDexCount) {
