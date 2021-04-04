@@ -14,6 +14,7 @@ html {
   height: 200px;
   margin: 50px auto;
   position: relative;
+  top: 0;
 }
 .pokeball div {
   height: 100px;
@@ -29,6 +30,7 @@ html {
   border-radius: 0 0 50px 50px;
   border-top: 5px solid black;
 }
+
 .pokeball span {
   display: flex;
   width: 50px;
@@ -40,6 +42,7 @@ html {
   left: calc(50% - 25px);
   top: calc(50% - 20px);
 }
+
 .pokemon_list{
   position: relative;
 }
@@ -48,6 +51,7 @@ html {
   width: 20%;
   height: 80px;
   margin: 50px auto;
+  
 }
 
 /* overlay styles, all needed */
@@ -57,21 +61,47 @@ html {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(100,0,25,1);
   z-index: 10;
 }
 
 .pm_info_full {
-  width: 300px;
-  height: 200px;
-  /* line-height: 200px; */
+  width: 96%;
+  height: 96%;
   position: fixed;
-  top: 50%; 
-  left: 50%;
-  margin-top: -100px;
-  margin-left: -150px;
-  background-color: #f1c40f;
-  border-radius: 5px;
+  top: 2%; 
+  left: 4%;
+  background-color: rgba(241,196,15,1);
+  border-radius: 20px;
   /* text-align: center; */
   z-index: 11; /* 1px higher than the overlay layer */
+  transition: 5s;
+}
+.pm_info_full table {
+  margin: auto;
+  font-size: 20px;
+  line-height: 30px;
+}
+.pm_info_full td {
+  text-align: left;
+  padding-bottom: 30px;
+}
+.pm_info_full td:first-child {
+  text-align: right;
+  padding-right: 50px;
+} 
+
+.pm_info_full img {
+  padding: 80px;
+  transform: scale(3);
+}
+
+@media screen and (max-width:1024px){
+  .pm_info {width: 25%;}
+}
+@media screen and (max-width:768px){
+  .pm_info {width: 33%;}
+}
+@media screen and (max-width:640px){
+  .pm_info {width: 50%;}
 }

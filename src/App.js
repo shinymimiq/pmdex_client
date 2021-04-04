@@ -6,7 +6,7 @@ import PokemonList from "./Components/PokemonList";
 
 const Pokedex = require("pokeapi-js-wrapper");
 const P = new Pokedex.Pokedex();
-const nationalPMDexCount = 151;
+const nationalPMDexCount = 21;
 
 const App = () => {
   // const [pmName, setPmName] = useState(null);

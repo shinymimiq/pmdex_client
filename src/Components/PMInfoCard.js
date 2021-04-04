@@ -9,12 +9,33 @@ const PMInfoCard = (props) => {
   ));
   return (
     <div className="pm_info_full">
-      <p>ID: {props.pm.id}</p>
-      <p>Name: {props.pm.name}</p>
-      <p>Height: {props.pm.height}</p>
-      <p>Weight: {props.pm.weight}</p>
-      <p>Types: {types}</p>
-      <p>Abilities: {abilities}</p>
+      < img src={props.pm.sprites.front_default} alt={props.pm.name} ></img>
+      <table>
+      <tr>
+          <td>ID:</td>
+          <td>{props.pm.id}</td>
+      </tr>
+      <tr>
+          <td>Name:</td>
+          <td>{props.pm.name}</td>
+      </tr>
+      <tr>
+          <td>Height:</td>
+          <td>{props.pm.height}</td>
+      </tr>
+      <tr>
+          <td>Weight:</td>
+          <td>{props.pm.weight}</td>
+      </tr>
+      <tr>
+          <td>Types:</td>
+          <td>{types}</td>
+      </tr>
+      <tr>
+          <td>Abilities:</td>
+          <td>{abilities}</td>
+      </tr>
+      </table>
     </div>
   );
 };

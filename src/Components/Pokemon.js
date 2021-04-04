@@ -13,7 +13,7 @@ const Pokemon = (props) => {
   };
 
   return (
-    <div>
+    <div class="">
       <div onClick={showPMInfoCard}>
         {/* make sure pm is not null */}
         {props.pm && (
