@@ -3,43 +3,42 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import Pokeball from "./Components/Pokeball";
 import PokemonList from "./Components/PokemonList";
+import apiGen from "./Api/apiGen";
+// import Axios from "axios"
+// const Axios = require("axios");
 
 const Pokedex = require("pokeapi-js-wrapper");
 const P = new Pokedex.Pokedex();
-const nationalPMDexCount = 21;
+const nationalPMDexCount = 151;
+
+function promiseGenfetchPokemon(offset=1, limit=nationalPMDexCount) {
+  // let indexArr = [...Array(nationalPMDexCount).keys()].map((i) => i + 1);
+  // [Array(nationalPMDexCount).keys()].map((i)=> {
+  var i = 0;
+  const pmPromises = [];
+  for (i=offset;i<=limit;i++){
+    pmPromises.push(apiGen.getPokemonByName(i));
+  }
+  return Promise.all(pmPromises);
+}
 
 const App = () => {
-  // const [pmName, setPmName] = useState(null);
-  // const [pmID, setPmID] = useState(null);
-  // const [pmSpritesURL, setPmSpritesURL] = useState(null);
   const [pms, setPMs] = useState([]);
 
   useEffect(() => {
-    // const interval = {
-    //   offset: 0,
-    //   limit: 2,
-    // };
-
-    async function fetchPokemon() {
-      let indexArr = [...Array(nationalPMDexCount).keys()].map((i) => i + 1);
-      try {
-        // P.getPokemonByName(array_of_ids), it returns a Promise.all(),
-        // which is all or nothing. It resolves once all promises in the array resolve,
-        // or reject as soon as one of them rejects.
-        return await P.getPokemonByName(indexArr);
-      } catch (e) {
-        console.error(e);
-      } finally {
-        console.log("balabalbalbala");
-      }
-      return "Error!!!!!!";
-    }
-
+    
     async function run() {
-      let response = await fetchPokemon();
+      let response = []
+      try {
+        response = await promiseGenfetchPokemon();
+      } catch(e) {
+        console.error(e);
+      }
+      console.log("RUN");
       console.log(response);
       setPMs(response);
     }
+    // fetchPokemon(1, 20);
     run();
   }, []); // <-- Have to pass in [] here!
 
