@@ -81,6 +81,10 @@ class apiGenerator {
   getPokemonByName(id) {
     return apiRequest(`/pokemon/${id}`);
   }
+
+  getAbilityByName(id) {
+    return apiRequest(`/ability/${id}`);
+  }
 }
 
 const apiGen = new apiGenerator();

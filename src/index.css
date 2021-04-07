@@ -79,12 +79,12 @@ html {
 }
 .pm_info_full table {
   margin: auto;
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 15px;
+  line-height: 20px;
 }
 .pm_info_full td {
   text-align: left;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 }
 .pm_info_full td:first-child {
   text-align: right;

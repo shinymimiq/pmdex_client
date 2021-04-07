@@ -4,7 +4,6 @@ import {
   Link
 } from "react-router-dom";
 
-
 const PokemonList = ({ pms }) => {
   const pmList = pms.map((pm) => (
     <div className="pm_info">
