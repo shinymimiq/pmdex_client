@@ -5,6 +5,13 @@ import Pokeball from "./Components/Pokeball";
 import PokemonList from "./Components/PokemonList";
 import apiGen from "./Api/apiGen";
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 const nationalPMDexCount = 898;
 
 function promiseGenfetchPokemon(offset=1, limit=nationalPMDexCount) {
@@ -37,13 +44,24 @@ const App = () => {
   }, []); // <-- Have to pass in [] here!
 
   return (
-    <div className="App">
-      <Pokeball />
-      <h3> PokeDex </h3>
-      {/* <PokemonItem pm_name={pmName} pm_sprite_url={pmSpritesURL} pm_id={pmID}></PokemonItem> */}
-      {pms.length === 0 && <p>Loading</p>}
-      {pms.length > 0 && <PokemonList pms={pms}></PokemonList>}
-    </div>
+    <Router>
+      <div className="App">
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/pokemon">Pokemon List</Link>
+            </li>
+          </ul>
+        </nav>
+        <Pokeball />
+        <Route path="/(|pokemon)">
+          <PokemonList pms={pms}></PokemonList>
+        </Route>
+      </div>
+    </Router>
   );
 };
 
