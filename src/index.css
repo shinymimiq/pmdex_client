@@ -34,12 +34,12 @@ html {
   top: 5%;
 }
 .side-navi a {
+  color: white;
   display: block;
   font-size: 10px;
   border: 1px solid black;
   border-bottom: none;
-  /* background:linear-gradient(to bottom,red,white,red); */
-  /* 这效果太土了我就给去了 */
+  background: red;
 }
 .side-navi a:nth-last-child(1) {
   border-bottom:1px solid black !important;
