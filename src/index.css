@@ -9,6 +9,44 @@ html {
   background: lightsteelblue;
   overflow-x: hidden;
 }
+
+/* header */
+.header a {
+  text-decoration: none;
+  text-align: center;
+}
+
+.navi {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+.navi a{
+  color: white;
+  width: 15%;
+  font-size: 20px;
+  background-color:#0184DE ;
+}
+.side-navi {
+  width: 10%;
+  position: fixed ;
+  right: 0;
+  top: 5%;
+}
+.side-navi a {
+  display: block;
+  font-size: 10px;
+  border: 1px solid black;
+  border-bottom: none;
+  /* background:linear-gradient(to bottom,red,white,red); */
+  /* 这效果太土了我就给去了 */
+}
+.side-navi a:nth-last-child(1) {
+  border-bottom:1px solid black !important;
+}
+
+
+/* pokeball */
 .pokeball {
   width: 200px;
   height: 200px;
