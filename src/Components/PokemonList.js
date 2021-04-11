@@ -6,7 +6,8 @@ import {
 
 const PokemonList = ({ pms }) => {
   const pmList = pms.map((pm) => (
-    <div className="pm_info">
+    <div className="pm_info" id="">
+     
       <Link to={`/pokemon/${pm.id}`}>
       <img
         src={pm.sprites.front_default}
