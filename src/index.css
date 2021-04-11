@@ -87,8 +87,8 @@ html {
 .pm_info {
   float: left;
   width: 20%;
-  height: 80px;
-  margin: 50px auto;
+  margin: 20px auto;
+  z-index: -1 !important;
 }
 .pm_info a {
   text-decoration: none;
