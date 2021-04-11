@@ -7,14 +7,16 @@ import {
 const PokemonList = ({ pms }) => {
   const pmList = pms.map((pm) => (
     <div className="pm_info" id={`pm${pm.id}`}>
-     
       <Link to={`/pokemon/${pm.id}`}>
       <img
         src={pm.sprites.front_default}
         alt={pm.species.name}
       ></img>
-      <em class="iconfont">&#xe625;</em>
-       {pm.id} {pm.name}
+      <p>
+        <em class="iconfont">&#xe625;</em>
+        {pm.id}
+      </p>
+       {pm.name}
       </Link>
     </div>
   ));
