@@ -1,4 +1,4 @@
-import Pokemon from "./Pokemon";
+import PokemonView from "./PokemonView";
 import {
   Route,
   Link
@@ -14,8 +14,7 @@ const PokemonList = ({ pms }) => {
         alt={pm.species.name}
       ></img>
       <em class="iconfont">&#xe625;</em>
-      {pm.id} 
-      {pm.name}
+       {pm.id} {pm.name}
       </Link>
     </div>
   ));
@@ -23,7 +22,7 @@ const PokemonList = ({ pms }) => {
   return (
   <div className="pokemon_list">
     <Route path="/pokemon/:pm_id" children={
-      <Pokemon/>
+      <PokemonView/>
     }></Route>
     {pmList}
   </div>

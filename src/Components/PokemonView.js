@@ -41,7 +41,7 @@ const PokemonLink = () => {
       <div>
         {/* make sure pm is not null */}
         {pm && (
-          <PMInfoCard pm={pm} />
+          <PokemonView pm={pm} />
         )}
       </div>
     </div>
@@ -50,7 +50,7 @@ const PokemonLink = () => {
 
 // pm as a parameter
 // Show: Sprites, Name, ID, types, weight, height, abilities.
-const PMInfoCard = (props) => {
+const PokemonView = (props) => {
   const [abilities_info, setAbility_info] = useState();
 
   const types = props.pm.types.map((type) => (
@@ -59,6 +59,11 @@ const PMInfoCard = (props) => {
   const abilities = props.pm.abilities.map((ability) => (
     <p>{ability.ability.name}</p>
   ));
+
+  // Each generation will have different move sets for a pokemon
+  // Need to filter the correct generation first
+  const moves = props.pm.moves.filter(move => (move.version_group_details.find(({version_group}) => version_group.name === 'ultra-sun-ultra-moon')
+    )).map((move) => ( <p>{move.move.name}</p>));
 
   const getAbility = async () => {
     return Promise.all(props.pm.abilities.map(ab => apiGen.getAbilityByName(ab.ability.name)))
@@ -85,6 +90,8 @@ const PMInfoCard = (props) => {
         console.error(e);
       }
     }
+    console.log("Hello");
+    console.log(moves);
     run();
   }, [props]);
 
@@ -123,6 +130,10 @@ const PMInfoCard = (props) => {
             {abilities_info && <PokemonAbility ab={abilities_info}/>}
           </td>
       </tr>
+      <tr>
+        <td>Moves:</td>
+        <td>{moves}</td>
+      </tr>
       </table>
     </div>
   );
@@ -143,5 +154,9 @@ const PokemonAbility = ({ab}) => {
     </div>
   );
 }
+
+// const PokemonMove = ( {moves} ) => {
+//   const move = moves.map()
+// }
 
 export default PokemonLink;

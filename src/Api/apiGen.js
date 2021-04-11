@@ -85,6 +85,10 @@ class apiGenerator {
   getAbilityByName(id) {
     return apiRequest(`/ability/${id}`);
   }
+
+  stripRawUrl(url) {
+    return url.replace("https://pokeapi.co/api/v2/", "");
+  }
 }
 
 const apiGen = new apiGenerator();
