@@ -8,6 +8,7 @@ import {useParams} from "react-router-dom";
 import apiGen from "../Api/apiGen";
 
 import { Link } from "react-router-dom";
+import MovesView from "./MovesView";
 
 // The link to the Pokemon Details page
 const PokemonLink = () => {
@@ -60,11 +61,6 @@ const PokemonView = (props) => {
     <p>{ability.ability.name}</p>
   ));
 
-  // Each generation will have different move sets for a pokemon
-  // Need to filter the correct generation first
-  const moves = props.pm.moves.filter(move => (move.version_group_details.find(({version_group}) => version_group.name === 'ultra-sun-ultra-moon')
-    )).map((move) => ( <p>{move.move.name}</p>));
-
   const getAbility = async () => {
     return Promise.all(props.pm.abilities.map(ab => apiGen.getAbilityByName(ab.ability.name)))
   }
@@ -91,7 +87,6 @@ const PokemonView = (props) => {
       }
     }
     console.log("Hello");
-    console.log(moves);
     run();
   }, [props]);
 
@@ -132,7 +127,7 @@ const PokemonView = (props) => {
       </tr>
       <tr >
         <td>Moves:</td>
-        <td className="moves">{moves}</td>
+        <td className="moves"><MovesView moves={props.pm.moves}></MovesView></td>
       </tr>
       </table>
     </div>
