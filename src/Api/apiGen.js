@@ -86,6 +86,10 @@ class apiGenerator {
     return apiRequest(`/ability/${id}`);
   }
 
+  getTypeByName(id) {
+    return apiRequest(`/type/${id}`);
+  }
+
   stripRawUrl(url) {
     return url.replace("https://pokeapi.co/api/v2/", "");
   }

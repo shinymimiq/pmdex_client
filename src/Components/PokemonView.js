@@ -114,7 +114,7 @@ const PokemonView = (props) => {
       </tr>
       <tr>
           <td>Types:</td>
-          <td>{types}</td>
+          <td><TypeView types={props.pm.types}></TypeView></td>
       </tr>
       <tr>
           <td>Abilities:
@@ -150,8 +150,69 @@ const PokemonAbility = ({ab}) => {
   );
 }
 
-// const PokemonMove = ( {moves} ) => {
-//   const move = moves.map()
-// }
+
+const TypeView = (props) => {
+  const types = props.types;
+
+  const [type_detail, setType] = useState();
+
+  const getType = async () => {
+    return Promise.all(types.map(type => apiGen.getTypeByName(type.type.name)))
+  }
+
+  useEffect(() => {
+    async function run() {
+      try {
+        let res = await getType();
+        console.log("TYPE!!!!");
+        console.log(res);
+        setType(res);
+      } catch(e) {
+        console.error(e);
+      }
+    }
+    run();
+  }, [types]);
+
+  return (
+    <div>
+    {!type_detail && types.map(type => (<p>{type.type.name}</p>))}
+    {type_detail && 
+      type_detail.map(type => {
+        return (
+          <div>
+          <p>{type.name} {type.id}</p>
+          <DamageRelationsView type={type}></DamageRelationsView>
+          </div>
+        )
+      }
+      )
+    }
+    </div>
+  );
+};
+
+// This should be a hover view
+const DamageRelationsView = (props) => {
+  const type=props.type;
+  const double_from = type.damage_relations.double_damage_from.map((type) => (<p>{type.name}</p>));
+  const double_to = type.damage_relations.double_damage_to.map((type) => (<p>{type.name}</p>));
+  const half_from = type.damage_relations.half_damage_from.map((type) => (<p>{type.name}</p>));
+  const half_to = type.damage_relations.half_damage_to.map((type) => (<p>{type.name}</p>));
+  const zero_from = type.damage_relations.no_damage_from.map((type) => (<p>{type.name}</p>));
+  const zero_to = type.damage_relations.no_damage_to.map((type) => (<p>{type.name}</p>));
+  
+  // TODO: don't display the empty list from above
+  return (
+    <div>
+      DOUBLE FROM: {double_from}
+      DOUBLE TO: {double_to}
+      HALF FROM: {half_from}
+      HALF TO: {half_to}
+      ZERO FROM: {zero_from}
+      ZERO TO: {zero_to}
+    </div>
+  )
+}
 
 export default PokemonLink;
