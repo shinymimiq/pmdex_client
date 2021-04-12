@@ -57,7 +57,7 @@ const MovesView = (props) => {
 
 
 const MovesList = (props) => {
-  const list = props.moves.map((move) => (<p>{move.move.name}</p>))
+  const list = props.moves.map((move) => (<p key={move.move.name}>{move.move.name}</p>))
   return (
     <div>
       {list}

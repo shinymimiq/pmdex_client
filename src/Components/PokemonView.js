@@ -55,10 +55,10 @@ const PokemonView = (props) => {
   const [abilities_info, setAbility_info] = useState();
 
   const types = props.pm.types.map((type) => (
-    <p>{type.type.name}</p>
+    <p key={type.type.name}>{type.type.name}</p>
   ));
   const abilities = props.pm.abilities.map((ability) => (
-    <p>{ability.ability.name}</p>
+    <p key={ability.ability.name}>{ability.ability.name}</p>
   ));
 
   const getAbility = async () => {
@@ -138,12 +138,12 @@ const PokemonAbility = ({ab}) => {
   const abilities = ab.map((ability) => {
       return ability.effect_entries
             .filter(entry => (entry.language.name === 'en'))
-            .map((entry) => (<li>{entry.short_effect}</li>))
+            .map((entry) => (<li key={`ability-${entry.name}`}>{entry.short_effect}</li>))
     }
   ); 
   return (
     <div className="pm_ability">
-      <ul>
+      <ul key={`abilities-ul`}>
         {abilities}
       </ul>
     </div>
@@ -176,13 +176,13 @@ const TypeView = (props) => {
 
   return (
     <div>
-    {!type_detail && types.map(type => (<p>{type.type.name}</p>))}
+    {!type_detail && types.map(type => (<p key={type.type.name}>{type.type.name}</p>))}
     {type_detail && 
       type_detail.map(type => {
         return (
-          <div>
-          <p>{type.name} {type.id}</p>
-          <DamageRelationsView type={type}></DamageRelationsView>
+          <div key={type.name}>
+          <p key={`${type.name}-${type.id}`}>{type.name} {type.id}</p>
+          <DamageRelationsView type={type} key={`DamageRelationView${type.name}`}></DamageRelationsView>
           </div>
         )
       }
@@ -195,12 +195,12 @@ const TypeView = (props) => {
 // This should be a hover view
 const DamageRelationsView = (props) => {
   const type=props.type;
-  const double_from = type.damage_relations.double_damage_from.map((type) => (<p>{type.name}</p>));
-  const double_to = type.damage_relations.double_damage_to.map((type) => (<p>{type.name}</p>));
-  const half_from = type.damage_relations.half_damage_from.map((type) => (<p>{type.name}</p>));
-  const half_to = type.damage_relations.half_damage_to.map((type) => (<p>{type.name}</p>));
-  const zero_from = type.damage_relations.no_damage_from.map((type) => (<p>{type.name}</p>));
-  const zero_to = type.damage_relations.no_damage_to.map((type) => (<p>{type.name}</p>));
+  const double_from = type.damage_relations.double_damage_from.map((type) => (<p key={`double_from_${type.name}`}>{type.name}</p>));
+  const double_to = type.damage_relations.double_damage_to.map((type) => (<p key={`double_to_${type.name}`}>{type.name}</p>));
+  const half_from = type.damage_relations.half_damage_from.map((type) => (<p key={`half_from_${type.name}`}>{type.name}</p>));
+  const half_to = type.damage_relations.half_damage_to.map((type) => (<p key={`half_to_${type.name}`}>{type.name}</p>));
+  const zero_from = type.damage_relations.no_damage_from.map((type) => (<p key={`zero_from_${type.name}`}>{type.name}</p>));
+  const zero_to = type.damage_relations.no_damage_to.map((type) => (<p key={`zero_to_${type.name}`}>{type.name}</p>));
   
   // TODO: don't display the empty list from above
   return (
