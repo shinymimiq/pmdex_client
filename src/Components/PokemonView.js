@@ -97,10 +97,10 @@ const PokemonView = (props) => {
 
   return (
     <div className="pm_info_full">
-      <Link to="/pokemon" style={{position:'fixed', top: '2%', left: '2%', zIndex:11}}><FontAwesomeIcon icon={faTimes}/></Link>
+      <Link to="/pokemon" style={{position:'fixed', top: '7%', left: '3%', zIndex:11}}><FontAwesomeIcon icon={faTimes}/></Link>
       
       <img src={props.pm.sprites.front_default} alt={props.pm.name} ></img>
-      <table>
+      <table >
       <tr>
           <td>ID:</td>
           <td>{props.pm.id}</td>
@@ -124,15 +124,15 @@ const PokemonView = (props) => {
       <tr>
           <td>Abilities:
           </td>
-          <td>{abilities}</td>
-          <td>
+          <td className="Abilities">{abilities}</td>
+          <td className="Abilities_full">
             {!abilities_info && "LOADING...."}
             {abilities_info && <PokemonAbility ab={abilities_info}/>}
           </td>
       </tr>
-      <tr>
+      <tr >
         <td>Moves:</td>
-        <td>{moves}</td>
+        <td className="moves">{moves}</td>
       </tr>
       </table>
     </div>

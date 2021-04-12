@@ -31,19 +31,19 @@ html {
   width: 10%;
   position: fixed ;
   right: 0;
-  top: 5%;
+  top: 20%;
 }
 .side-navi a {
   color: white;
   display: block;
   font-size: 10px;
   border: 1px solid black;
-  border-bottom: none;
   background: red;
+  margin-bottom: 5px;
 }
-.side-navi a:nth-last-child(1) {
+/* .side-navi a:nth-last-child(1) {
   border-bottom:1px solid black !important;
-}
+} */
 
 
 /* pokeball */
@@ -88,7 +88,6 @@ html {
   float: left;
   width: 20%;
   margin: 20px auto;
-  z-index: -1 !important;
 }
 .pm_info a {
   text-decoration: none;
@@ -101,7 +100,6 @@ html {
 
 /* overlay styles, all needed */
 .overlay {
-  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
@@ -111,16 +109,14 @@ html {
 }
 
 .pm_info_full {
-  width: 96%;
-  height: 96%;
   position: fixed;
-  top: 2%; 
-  left: 4%;
+  width: 100%;
+  height: 90%;
+  top: 5%;
+  overflow-y: auto;
   background-color: rgba(241,196,15,1);
   border-radius: 20px;
-  /* text-align: center; */
   z-index: 11; /* 1px higher than the overlay layer */
-  transition: 5s;
 }
 .pm_info_full table {
   margin: auto;
@@ -137,16 +133,59 @@ html {
 } 
 
 .pm_info_full img {
-  padding: 80px;
-  transform: scale(3);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  transform: scale(2.5);
 }
 
+.moves {
+  width: 100%;
+}
+.moves p {
+  font-size: 15px;
+  border: 1px dashed gray;
+}
+
+
 @media screen and (max-width:1024px){
-  .pm_info {width: 25%;}
+  .pm_info {
+    width: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 25px;
+  }
+  .side-navi {
+    width: 50px;
+  }
+  .side-navi a {
+    font-size: 20px;
+  }
 }
 @media screen and (max-width:768px){
-  .pm_info {width: 33%;}
+  .pm_info {
+    width: 13%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 20px;
+  }
+  .side-navi {
+    width: 50px;
+  }
+  .side-navi a {
+    font-size: 20px;
+  }
 }
 @media screen and (max-width:640px){
-  .pm_info {width: 50%;}
+  .pm_info {
+    width: 30%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 15px;
+  }
+  .side-navi {
+    width: 30px;
+  }
+  .side-navi a {
+    font-size: 12px;
+  }
 }
