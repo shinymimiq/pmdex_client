@@ -28,7 +28,7 @@ html {
   background-color:#0184DE ;
 }
 .side-navi {
-  width: 10%;
+  width: 4%;
   position: fixed ;
   right: 0;
   top: 20%;
@@ -36,7 +36,7 @@ html {
 .side-navi a {
   color: white;
   display: block;
-  font-size: 10px;
+  font-size: 20px;
   border: 1px solid black;
   background: red;
   margin-bottom: 5px;
@@ -86,8 +86,9 @@ html {
 }
 .pm_info {
   float: left;
-  width: 20%;
-  margin: 20px auto;
+  width: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 .pm_info a {
   text-decoration: none;
