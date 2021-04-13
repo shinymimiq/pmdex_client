@@ -89,12 +89,16 @@ html {
   width: 10%;
   margin-left: 5%;
   margin-right: 5%;
+  transition: transform 0.25s ease-out;
 }
-.pm_info a {
+.pm_info a:link,a:visited{
   text-decoration: none;
+  text-align: center;
+  color: gray;
 }
-
-
+.pm_info:hover {
+  transform: scale(1.08);
+}
 
 
 
@@ -112,7 +116,7 @@ html {
 .pm_info_full {
   position: fixed;
   width: 100%;
-  height: 90%;
+  height: 95%;
   top: 5%;
   overflow-y: auto;
   background-color: rgba(241,196,15,1);
