@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import "../Resources/iconfont.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import apiGen from "../Api/apiGen";
 
@@ -12,7 +12,7 @@ import MovesView from "./MovesView";
 
 // The link to the Pokemon Details page
 const PokemonLink = () => {
-  const {pm_id} = useParams();
+  const { pm_id } = useParams();
   // const [state, setState] = useState({ full: true });
   const [pm, setPM] = useState();
 
@@ -29,7 +29,7 @@ const PokemonLink = () => {
         let res = await apiGen.getPokemonByName(pm_id);
         console.log(res);
         setPM(res);
-      } catch(e) {
+      } catch (e) {
         console.error(e);
       }
     }
@@ -41,9 +41,7 @@ const PokemonLink = () => {
       {/* <div onClick={showPMInfoCard}> */}
       <div>
         {/* make sure pm is not null */}
-        {pm && (
-          <PokemonView pm={pm} />
-        )}
+        {pm && <PokemonView pm={pm} />}
       </div>
     </div>
   );
@@ -62,8 +60,10 @@ const PokemonView = (props) => {
   ));
 
   const getAbility = async () => {
-    return Promise.all(props.pm.abilities.map(ab => apiGen.getAbilityByName(ab.ability.name)))
-  }
+    return Promise.all(
+      props.pm.abilities.map((ab) => apiGen.getAbilityByName(ab.ability.name))
+    );
+  };
 
   // const showAbilitiesDetail = () => {
   //   console.log("HOVER")
@@ -82,7 +82,7 @@ const PokemonView = (props) => {
         console.log("ABILITIES");
         console.log(res);
         setAbility_info(res);
-      } catch(e) {
+      } catch (e) {
         console.error(e);
       }
     }
@@ -92,64 +92,70 @@ const PokemonView = (props) => {
 
   return (
     <div className="pm_info_full">
-      <Link to="/pokemon" style={{position:'fixed', top: '7%', left: '3%', zIndex:11}}><FontAwesomeIcon icon={faTimes}/></Link>
-      
-      <img src={props.pm.sprites.front_default} alt={props.pm.name} ></img>
-      <table >
-      <tr>
+      <Link
+        to="/pokemon"
+        style={{ position: "fixed", top: "7%", left: "3%", zIndex: 11 }}
+      >
+        <FontAwesomeIcon icon={faTimes} />
+      </Link>
+
+      <img src={props.pm.sprites.front_default} alt={props.pm.name}></img>
+      <table>
+        <tr>
           <td>ID:</td>
           <td>{props.pm.id}</td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
           <td>Name:</td>
           <td>{props.pm.name}</td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
           <td>Height:</td>
           <td>{props.pm.height}</td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
           <td>Weight:</td>
           <td>{props.pm.weight}</td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
           <td>Types:</td>
-          <td><TypeView types={props.pm.types}></TypeView></td>
-      </tr>
-      <tr>
-          <td>Abilities:
+          <td>
+            <TypeView types={props.pm.types}></TypeView>
           </td>
+        </tr>
+        <tr>
+          <td>Abilities:</td>
           <td className="Abilities">{abilities}</td>
           <td className="Abilities_full">
             {!abilities_info && "LOADING...."}
-            {abilities_info && <PokemonAbility ab={abilities_info}/>}
+            {abilities_info && <PokemonAbility ab={abilities_info} />}
           </td>
-      </tr>
-      <tr >
-        <td>Moves:</td>
-        <td className="moves"><MovesView moves={props.pm.moves}></MovesView></td>
-      </tr>
+        </tr>
+        <tr>
+          <td>Moves:</td>
+          <td className="moves">
+            <MovesView moves={props.pm.moves}></MovesView>
+          </td>
+        </tr>
       </table>
     </div>
   );
 };
 
-const PokemonAbility = ({ab}) => {
+const PokemonAbility = ({ ab }) => {
   const abilities = ab.map((ability) => {
-      return ability.effect_entries
-            .filter(entry => (entry.language.name === 'en'))
-            .map((entry) => (<li key={`ability-${entry.name}`}>{entry.short_effect}</li>))
-    }
-  ); 
+    return ability.effect_entries
+      .filter((entry) => entry.language.name === "en")
+      .map((entry) => (
+        <li key={`ability-${entry.name}`}>{entry.short_effect}</li>
+      ));
+  });
   return (
     <div className="pm_ability">
-      <ul key={`abilities-ul`}>
-        {abilities}
-      </ul>
+      <ul key={`abilities-ul`}>{abilities}</ul>
     </div>
   );
-}
-
+};
 
 const TypeView = (props) => {
   const types = props.types;
@@ -157,8 +163,10 @@ const TypeView = (props) => {
   const [type_detail, setType] = useState();
 
   const getType = async () => {
-    return Promise.all(types.map(type => apiGen.getTypeByName(type.type.name)))
-  }
+    return Promise.all(
+      types.map((type) => apiGen.getTypeByName(type.type.name))
+    );
+  };
 
   useEffect(() => {
     async function run() {
@@ -167,7 +175,7 @@ const TypeView = (props) => {
         console.log("TYPE!!!!");
         console.log(res);
         setType(res);
-      } catch(e) {
+      } catch (e) {
         console.error(e);
       }
     }
@@ -176,32 +184,48 @@ const TypeView = (props) => {
 
   return (
     <div>
-    {!type_detail && types.map(type => (<p key={type.type.name}>{type.type.name}</p>))}
-    {type_detail && 
-      type_detail.map(type => {
-        return (
-          <div key={type.name}>
-          <p key={`${type.name}-${type.id}`}>{type.name} {type.id}</p>
-          <DamageRelationsView type={type} key={`DamageRelationView${type.name}`}></DamageRelationsView>
-          </div>
-        )
-      }
-      )
-    }
+      {!type_detail &&
+        types.map((type) => <p key={type.type.name}>{type.type.name}</p>)}
+      {type_detail &&
+        type_detail.map((type) => {
+          return (
+            <div key={type.name}>
+              <p key={`${type.name}-${type.id}`}>
+                {type.name} {type.id}
+              </p>
+              <DamageRelationsView
+                type={type}
+                key={`DamageRelationView${type.name}`}
+              ></DamageRelationsView>
+            </div>
+          );
+        })}
     </div>
   );
 };
 
 // This should be a hover view
 const DamageRelationsView = (props) => {
-  const type=props.type;
-  const double_from = type.damage_relations.double_damage_from.map((type) => (<p key={`double_from_${type.name}`}>{type.name}</p>));
-  const double_to = type.damage_relations.double_damage_to.map((type) => (<p key={`double_to_${type.name}`}>{type.name}</p>));
-  const half_from = type.damage_relations.half_damage_from.map((type) => (<p key={`half_from_${type.name}`}>{type.name}</p>));
-  const half_to = type.damage_relations.half_damage_to.map((type) => (<p key={`half_to_${type.name}`}>{type.name}</p>));
-  const zero_from = type.damage_relations.no_damage_from.map((type) => (<p key={`zero_from_${type.name}`}>{type.name}</p>));
-  const zero_to = type.damage_relations.no_damage_to.map((type) => (<p key={`zero_to_${type.name}`}>{type.name}</p>));
-  
+  const type = props.type;
+  const double_from = type.damage_relations.double_damage_from.map((type) => (
+    <p key={`double_from_${type.name}`}>{type.name}</p>
+  ));
+  const double_to = type.damage_relations.double_damage_to.map((type) => (
+    <p key={`double_to_${type.name}`}>{type.name}</p>
+  ));
+  const half_from = type.damage_relations.half_damage_from.map((type) => (
+    <p key={`half_from_${type.name}`}>{type.name}</p>
+  ));
+  const half_to = type.damage_relations.half_damage_to.map((type) => (
+    <p key={`half_to_${type.name}`}>{type.name}</p>
+  ));
+  const zero_from = type.damage_relations.no_damage_from.map((type) => (
+    <p key={`zero_from_${type.name}`}>{type.name}</p>
+  ));
+  const zero_to = type.damage_relations.no_damage_to.map((type) => (
+    <p key={`zero_to_${type.name}`}>{type.name}</p>
+  ));
+
   // TODO: don't display the empty list from above
   return (
     <div>
@@ -212,7 +236,7 @@ const DamageRelationsView = (props) => {
       ZERO FROM: {zero_from}
       ZERO TO: {zero_to}
     </div>
-  )
-}
+  );
+};
 
 export default PokemonLink;

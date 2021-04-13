@@ -19,25 +19,25 @@ const MovesView = (props) => {
   // TODO: to see if we can have some factory function to generate these four lists
   const level_up_moves_list = filtered_moves_list.filter((move) =>
     move.version_group_details.find(
-      ({move_learn_method}) => move_learn_method.name === "level-up" 
+      ({ move_learn_method }) => move_learn_method.name === "level-up"
     )
   );
 
   const egg_moves_list = filtered_moves_list.filter((move) =>
     move.version_group_details.find(
-      ({move_learn_method}) => move_learn_method.name === "egg" 
+      ({ move_learn_method }) => move_learn_method.name === "egg"
     )
   );
 
   const tutor_moves_list = filtered_moves_list.filter((move) =>
     move.version_group_details.find(
-      ({move_learn_method}) => move_learn_method.name === "tutor" 
+      ({ move_learn_method }) => move_learn_method.name === "tutor"
     )
   );
 
   const machine_moves_list = filtered_moves_list.filter((move) =>
     move.version_group_details.find(
-      ({move_learn_method}) => move_learn_method.name === "machine" 
+      ({ move_learn_method }) => move_learn_method.name === "machine"
     )
   );
 
@@ -55,14 +55,11 @@ const MovesView = (props) => {
   );
 };
 
-
 const MovesList = (props) => {
-  const list = props.moves.map((move) => (<p key={move.move.name}>{move.move.name}</p>))
-  return (
-    <div>
-      {list}
-    </div>
-  );
+  const list = props.moves.map((move) => (
+    <p key={move.move.name}>{move.move.name}</p>
+  ));
+  return <div>{list}</div>;
 };
 
 export default MovesView;
