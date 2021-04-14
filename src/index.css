@@ -104,6 +104,9 @@ a {
 .pm_info:hover a {
   color: lightcoral;
 }
+p.capitalize {
+  text-transform: capitalize;
+}
 
 
 

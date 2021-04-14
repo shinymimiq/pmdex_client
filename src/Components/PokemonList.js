@@ -10,7 +10,7 @@ const PokemonList = ({ pms_detail }) => {
           <em class="iconfont">&#xe625;</em>
           {pm.id}
         </p>
-        {pm.name}
+        <p className='capitalize'>{pm.species.name}</p>
       </Link>
     </div>
   ));
