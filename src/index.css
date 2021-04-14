@@ -9,6 +9,9 @@ html {
   background: lightsteelblue;
   overflow-x: hidden;
 }
+a {
+  text-decoration: none;
+}
 
 /* header */
 .header a {
@@ -89,17 +92,18 @@ html {
   width: 10%;
   margin-left: 5%;
   margin-right: 5%;
-  transition: transform 0.25s ease-out;
+  transition:0.25s transform 0.25s ease-out;
 }
-.pm_info a:link,a:visited{
-  text-decoration: none;
-  text-align: center;
+.pm_info a {
   color: gray;
+  transition: 0.5s;
 }
 .pm_info:hover {
   transform: scale(1.08);
 }
-
+.pm_info:hover a {
+  color: lightcoral;
+}
 
 
 
