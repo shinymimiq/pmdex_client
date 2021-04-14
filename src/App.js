@@ -5,7 +5,7 @@ import Pokeball from "./Components/Pokeball";
 import PokemonList from "./Components/PokemonList";
 import apiGen from "./Api/apiGen";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const nationalPMDexCount = 898;
 

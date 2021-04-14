@@ -24,11 +24,7 @@ export const PokemonView = (props) => {
     <p key={ability.ability.name}>{ability.ability.name}</p>
   ));
 
-  const getAbility = async () => {
-    return Promise.all(
-      pm.abilities.map((ab) => apiGen.getAbilityByName(ab.ability.name))
-    );
-  };
+
 
   // const showAbilitiesDetail = () => {
   //   console.log("HOVER")
@@ -41,6 +37,12 @@ export const PokemonView = (props) => {
   // }
 
   useEffect(() => {
+    const getAbility = async () => {
+      return Promise.all(
+        pm.abilities.map((ab) => apiGen.getAbilityByName(ab.ability.name))
+      );
+    };
+
     async function run() {
       try {
         let res = await getAbility();
@@ -53,7 +55,7 @@ export const PokemonView = (props) => {
     }
     console.log("Hello");
     run();
-  }, [pm]);
+  }, [pm.abilities]);
 
   return (
     <div className="pm_info_full">
@@ -127,13 +129,14 @@ export const TypeView = (props) => {
 
   const [type_detail, setType] = useState();
 
-  const getType = async () => {
-    return Promise.all(
-      types.map((type) => apiGen.getTypeByName(type.type.name))
-    );
-  };
-
   useEffect(() => {
+
+    const getType = async () => {
+      return Promise.all(
+        types.map((type) => apiGen.getTypeByName(type.type.name))
+      );
+    };
+
     async function run() {
       try {
         let res = await getType();
