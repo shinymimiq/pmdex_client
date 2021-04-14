@@ -210,4 +210,7 @@ p.capitalize {
   .side-navi a {
     font-size: 12px;
   }
+  .pokeball {
+    display: none;
+  }
 }
