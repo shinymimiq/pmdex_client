@@ -1,8 +1,8 @@
 const Pokeball = () => {
   return (
-    <div class="pokeball">
-      <div class="upside"></div>
-      <div class="downside"></div>
+    <div className="pokeball">
+      <div className="upside"></div>
+      <div className="downside"></div>
       <span></span>
     </div>
   );

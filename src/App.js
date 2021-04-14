@@ -10,13 +10,10 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 const nationalPMDexCount = 898;
 
 function promiseGenfetchPokemon(offset = 1, limit = nationalPMDexCount) {
-  // let indexArr = [...Array(nationalPMDexCount).keys()].map((i) => i + 1);
-  // [Array(nationalPMDexCount).keys()].map((i)=> {
-  var i = 0;
   const pmPromises = [];
-  for (i = offset; i <= limit; i++) {
-    pmPromises.push(apiGen.getPokemonByName(i));
-  }
+  Array.from({length: nationalPMDexCount}, (_, i) => i + offset).map((i) => 
+    pmPromises.push(apiGen.getPokemonByName(i))
+  )
   return Promise.all(pmPromises);
 }
 
@@ -37,8 +34,6 @@ const App = () => {
       } catch (e) {
         console.error(e);
       }
-      console.log("RUN");
-      console.log(response);
       setPMs(response);
     }
     run();

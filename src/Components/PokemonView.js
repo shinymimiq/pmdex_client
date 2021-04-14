@@ -46,14 +46,11 @@ export const PokemonView = (props) => {
     async function run() {
       try {
         let res = await getAbility();
-        console.log("ABILITIES");
-        console.log(res);
         setAbility_info(res);
       } catch (e) {
         console.error(e);
       }
     }
-    console.log("Hello");
     run();
   }, [pm.abilities]);
 
@@ -140,8 +137,6 @@ export const TypeView = (props) => {
     async function run() {
       try {
         let res = await getType();
-        console.log("TYPE!!!!");
-        console.log(res);
         setType(res);
       } catch (e) {
         console.error(e);

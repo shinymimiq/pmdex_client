@@ -7,7 +7,7 @@ const PokemonList = ({ pms_detail }) => {
       <Link to={`/pokemon/${pm.id}`}>
         <img src={pm.sprites.front_default} alt={pm.species.name}></img>
         <p>
-          <em class="iconfont">&#xe625;</em>
+          <em className="iconfont">&#xe625;</em>
           {pm.id}
         </p>
         <p className='capitalize'>{pm.species.name}</p>
