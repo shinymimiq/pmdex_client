@@ -19,17 +19,27 @@ a {
   text-align: center;
 }
 
-.navi {
-  display: flex;
-  justify-content: space-around;
-  position: relative;
+.top-navi {
+  height: 43px;
+  background: url(img/nav2.jpg) repeat-x left bottom;
+  padding-left: 10px;
 }
-.navi a{
+.top-navi ul li {
+  float: left;
+  list-style: none;
+  line-height: 43px;
+  font-size: 15px;
+}
+.top-navi a{
+  display: block;
+  padding: 0 15px;
+  color: #000;
+}
+.top-navi ul li a:hover {
   color: white;
-  width: 15%;
-  font-size: 20px;
-  background-color:#0184DE ;
+  background: url(img/nav1.jpg);
 }
+
 .side-navi {
   width: 4%;
   position: fixed ;
