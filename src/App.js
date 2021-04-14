@@ -58,7 +58,7 @@ const App = () => {
         </nav>
         <Pokeball />
         <Route path="/(|pokemon)">
-          <PokemonList pms={pms}></PokemonList>
+          <PokemonList pms_detail={pms}></PokemonList>
         </Route>
       </div>
     </Router>

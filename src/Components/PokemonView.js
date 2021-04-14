@@ -10,58 +10,23 @@ import apiGen from "../Api/apiGen";
 import { Link } from "react-router-dom";
 import MovesView from "./MovesView";
 
-// The link to the Pokemon Details page
-const PokemonLink = () => {
-  const { pm_id } = useParams();
-  // const [state, setState] = useState({ full: true });
-  const [pm, setPM] = useState();
-
-  // let showPMInfoCard = () => {
-  //   console.log("Hello");
-  //   setState((prevState) => ({
-  //     full: !prevState.full,
-  //   }));
-  // };
-
-  useEffect(() => {
-    async function getPokemon() {
-      try {
-        let res = await apiGen.getPokemonByName(pm_id);
-        console.log(res);
-        setPM(res);
-      } catch (e) {
-        console.error(e);
-      }
-    }
-    getPokemon();
-  }, [pm_id]);
-
-  return (
-    <div class="">
-      {/* <div onClick={showPMInfoCard}> */}
-      <div>
-        {/* make sure pm is not null */}
-        {pm && <PokemonView pm={pm} />}
-      </div>
-    </div>
-  );
-};
-
-// pm as a parameter
 // Show: Sprites, Name, ID, types, weight, height, abilities.
-const PokemonView = (props) => {
+export const PokemonView = (props) => {
+  const { pm_id } = useParams();
+  let pm = props.pms_detail.filter(pm => parseInt(pm.id)===parseInt(pm_id));
+  if (pm.length === 1) {
+    pm = pm[0];
+  }
+
   const [abilities_info, setAbility_info] = useState();
 
-  const types = props.pm.types.map((type) => (
-    <p key={type.type.name}>{type.type.name}</p>
-  ));
-  const abilities = props.pm.abilities.map((ability) => (
+  const abilities = pm.abilities.map((ability) => (
     <p key={ability.ability.name}>{ability.ability.name}</p>
   ));
 
   const getAbility = async () => {
     return Promise.all(
-      props.pm.abilities.map((ab) => apiGen.getAbilityByName(ab.ability.name))
+      pm.abilities.map((ab) => apiGen.getAbilityByName(ab.ability.name))
     );
   };
 
@@ -88,7 +53,7 @@ const PokemonView = (props) => {
     }
     console.log("Hello");
     run();
-  }, [props]);
+  }, [pm]);
 
   return (
     <div className="pm_info_full">
@@ -99,28 +64,28 @@ const PokemonView = (props) => {
         <FontAwesomeIcon icon={faTimes} />
       </Link>
 
-      <img src={props.pm.sprites.front_default} alt={props.pm.name}></img>
+      <img src={pm.sprites.front_default} alt={pm.name}></img>
       <table>
         <tr>
           <td>ID:</td>
-          <td>{props.pm.id}</td>
+          <td>{pm.id}</td>
         </tr>
         <tr>
           <td>Name:</td>
-          <td>{props.pm.name}</td>
+          <td>{pm.name}</td>
         </tr>
         <tr>
           <td>Height:</td>
-          <td>{props.pm.height}</td>
+          <td>{pm.height}</td>
         </tr>
         <tr>
           <td>Weight:</td>
-          <td>{props.pm.weight}</td>
+          <td>{pm.weight}</td>
         </tr>
         <tr>
           <td>Types:</td>
           <td>
-            <TypeView types={props.pm.types}></TypeView>
+            <TypeView types={pm.types}></TypeView>
           </td>
         </tr>
         <tr>
@@ -134,7 +99,7 @@ const PokemonView = (props) => {
         <tr>
           <td>Moves:</td>
           <td className="moves">
-            <MovesView moves={props.pm.moves}></MovesView>
+            <MovesView moves={pm.moves}></MovesView>
           </td>
         </tr>
       </table>
@@ -142,7 +107,7 @@ const PokemonView = (props) => {
   );
 };
 
-const PokemonAbility = ({ ab }) => {
+export const PokemonAbility = ({ ab }) => {
   const abilities = ab.map((ability) => {
     return ability.effect_entries
       .filter((entry) => entry.language.name === "en")
@@ -157,7 +122,7 @@ const PokemonAbility = ({ ab }) => {
   );
 };
 
-const TypeView = (props) => {
+export const TypeView = (props) => {
   const types = props.types;
 
   const [type_detail, setType] = useState();
@@ -205,7 +170,7 @@ const TypeView = (props) => {
 };
 
 // This should be a hover view
-const DamageRelationsView = (props) => {
+export const DamageRelationsView = (props) => {
   const type = props.type;
   const double_from = type.damage_relations.double_damage_from.map((type) => (
     <p key={`double_from_${type.name}`}>{type.name}</p>
@@ -238,5 +203,3 @@ const DamageRelationsView = (props) => {
     </div>
   );
 };
-
-export default PokemonLink;
