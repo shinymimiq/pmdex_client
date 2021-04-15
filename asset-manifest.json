@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/pmdex_client/static/css/main.46f8ecb9.chunk.css",
+    "main.js": "/pmdex_client/static/js/main.36370c6b.chunk.js",
+    "main.js.map": "/pmdex_client/static/js/main.36370c6b.chunk.js.map",
+    "runtime-main.js": "/pmdex_client/static/js/runtime-main.a0f99495.js",
+    "runtime-main.js.map": "/pmdex_client/static/js/runtime-main.a0f99495.js.map",
+    "static/js/2.ee72ef0f.chunk.js": "/pmdex_client/static/js/2.ee72ef0f.chunk.js",
+    "static/js/2.ee72ef0f.chunk.js.map": "/pmdex_client/static/js/2.ee72ef0f.chunk.js.map",
+    "static/js/3.3e3d5665.chunk.js": "/pmdex_client/static/js/3.3e3d5665.chunk.js",
+    "static/js/3.3e3d5665.chunk.js.map": "/pmdex_client/static/js/3.3e3d5665.chunk.js.map",
+    "index.html": "/pmdex_client/index.html",
+    "static/css/main.46f8ecb9.chunk.css.map": "/pmdex_client/static/css/main.46f8ecb9.chunk.css.map",
+    "static/js/2.ee72ef0f.chunk.js.LICENSE.txt": "/pmdex_client/static/js/2.ee72ef0f.chunk.js.LICENSE.txt",
+    "static/media/iconfont.css": "/pmdex_client/static/media/iconfont.d99a6b2d.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a0f99495.js",
+    "static/js/2.ee72ef0f.chunk.js",
+    "static/css/main.46f8ecb9.chunk.css",
+    "static/js/main.36370c6b.chunk.js"
+  ]
+}
