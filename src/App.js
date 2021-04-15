@@ -6,6 +6,7 @@ import PokemonList from "./Components/PokemonList";
 import apiGen from "./Api/apiGen";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Nav from "./Components/Nav";
 
 const nationalPMDexCount = 898;
 
@@ -41,6 +42,7 @@ const App = () => {
 
   return (
     <div>
+      <Nav></Nav>
       <input
         type="search"
         placeholder="Search Pokemon"
