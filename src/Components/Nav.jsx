@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Nav = () => {
+export const Nav = () => {
   return (
     <div className="header">
       <div className="top-navi">
@@ -20,18 +20,16 @@ const Nav = () => {
         </ul>
       </div>
       <div className="side-navi">
-          <a href="#navi">回到顶部</a>
-          <a href="#pm1">第一世代</a>
-          <a href="#pm152">第二世代</a>
-          <a href="#pm252">第三世代</a>
-          <a href="#pm387">第四世代</a>
-          <a href="#pm495">第五世代</a>
-          <a href="#pm650">第六世代</a>
-          <a href="#pm722">第七世代</a>
-          <a href="#pm810">第八世代</a>
+          <a href="#navi">Back to Top</a>
+          <a href="#pm1">Gen 1</a>
+          <a href="#pm152">Gen 2</a>
+          <a href="#pm252">Gen 3</a>
+          <a href="#pm387">Gen 4</a>
+          <a href="#pm495">Gen 5</a>
+          <a href="#pm650">Gen 6</a>
+          <a href="#pm722">Gen 7</a>
+          <a href="#pm810">Gen 8</a>
       </div>
     </div>
   )
 }
-
-export default Nav
