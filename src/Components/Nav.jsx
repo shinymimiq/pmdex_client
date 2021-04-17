@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Nav = () => {
   return (
-    <div className="header">
+    <div className="header" id="header">
       <div className="top-navi">
         <ul>
           <li>
@@ -20,7 +20,7 @@ export const Nav = () => {
         </ul>
       </div>
       <div className="side-navi">
-          <a href="#navi">Back to Top</a>
+          <a href="#header">Back to Top</a>
           <a href="#pm1">Gen 1</a>
           <a href="#pm152">Gen 2</a>
           <a href="#pm252">Gen 3</a>

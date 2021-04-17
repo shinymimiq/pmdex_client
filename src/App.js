@@ -46,6 +46,7 @@ const App = () => {
       <input
         type="search"
         placeholder="Search Pokemon"
+        className="search-bar"
         onChange={(e) => setSearchField(e.target.value)}
       />
       <Router>

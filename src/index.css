@@ -47,16 +47,28 @@ a {
   top: 20%;
 }
 .side-navi a {
-  color: white;
+  color: black;
   display: block;
   font-size: 20px;
   border: 1px solid black;
-  background: red;
+  box-shadow: ;
+  background: #E5E5E5;
   margin-bottom: 5px;
 }
-/* .side-navi a:nth-last-child(1) {
-  border-bottom:1px solid black !important;
-} */
+.search-bar{
+  margin:5px 0 5px 15px;
+  background: #E5E5E5;
+  outline-style: none;
+  border-radius: 5px;
+  height: 25px;
+  width: 200px;
+  padding:5px;
+}
+.search-bar:focus{
+  background: lightgreen;
+  border: 1px solid red;
+}
+
 
 
 /* pokeball */
@@ -176,11 +188,22 @@ p.capitalize {
     margin-right: 5%;
     font-size: 25px;
   }
+  .top-navi a{
+    width: ;
+    font-size: 25px;
+  }
   .side-navi {
     width: 50px;
   }
-  .side-navi a {
-    font-size: 20px;
+  .top-navi ul li a {
+    width: 100px;
+    font-size: 30px;
+  }
+  .search-bar {
+    margin-top: 20px;
+    width: 420px;
+    height: 40px;
+    font-size: 38px;
   }
 }
 @media screen and (max-width:768px){
@@ -196,6 +219,16 @@ p.capitalize {
   .side-navi a {
     font-size: 20px;
   }
+  .top-navi ul li a {
+    width: 100px;
+    font-size: 25px;
+  }
+  .search-bar {
+    margin-top: 20px;
+    width: 320px;
+    height: 30px;
+    font-size: 28px;
+  }
 }
 @media screen and (max-width:640px){
   .pm_info {
@@ -203,6 +236,9 @@ p.capitalize {
     margin-left: 10%;
     margin-right: 10%;
     font-size: 15px;
+  }
+  .top-navi a{
+    padding: 0 10px;
   }
   .side-navi {
     width: 30px;
@@ -212,5 +248,15 @@ p.capitalize {
   }
   .pokeball {
     display: none;
+  }
+  .top-navi ul li a {
+    width: 50px;
+    font-size: 18px;
+  }
+  .search-bar {
+    margin:15px 18px 10px;
+    width: 320px;
+    height: 30px;
+    font-size: 28px;
   }
 }
