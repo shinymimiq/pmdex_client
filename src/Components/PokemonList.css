@@ -1,0 +1,24 @@
+.pokemon_list{
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1% 3%;
+  overflow-y: auto;
+}
+
+.pokemon_preview {
+  min-width: 12%;
+  margin: 10px;
+  transition:0.25s transform 0.25s ease-out;
+}
+.pokemon_preview a {
+  color: gray;
+  transition: 0.5s;
+}
+.pokemon_preview:hover {
+  transform: scale(1.08);
+}
+.pokemon_preview:hover a {
+  color: lightcoral;
+}

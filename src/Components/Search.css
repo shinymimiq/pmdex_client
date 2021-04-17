@@ -1,0 +1,11 @@
+.search-bar{
+  outline-style: none;
+  border-radius: 5px;
+  height: 25px;
+  width: 300px;
+  padding:5px;
+}
+.search-bar:focus{
+  background: lightgreen;
+  border: 1px solid red;
+}

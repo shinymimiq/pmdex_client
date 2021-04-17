@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "../Resources/iconfont.css";
+import "../Assets/iconfont.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
@@ -9,6 +9,8 @@ import apiGen from "../Api/apiGen";
 
 import { Link } from "react-router-dom";
 import MovesView from "./MovesView";
+
+import './PokemonView.css'
 
 // Show: Sprites, Name, ID, types, weight, height, abilities.
 export const PokemonView = (props) => {
@@ -55,10 +57,10 @@ export const PokemonView = (props) => {
   }, [pm.abilities]);
 
   return (
-    <div className="pm_info_full">
+    <div className="pokemon_view">
       <Link
+        className='back_icon'
         to="/pokemon"
-        style={{ position: "fixed", top: "7%", left: "3%", zIndex: 11 }}
       >
         <FontAwesomeIcon icon={faTimes} />
       </Link>

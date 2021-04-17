@@ -1,28 +1,36 @@
 import { PokemonView } from "./PokemonView";
 import { Route, Link } from "react-router-dom";
 
-const PokemonList = ({ pms_detail }) => {
-  const pmList = pms_detail.map((pm) => (
-    <div className="pm_info" id={`pm${pm.id}`} key={`pm${pm.id}`}>
-      <Link to={`/pokemon/${pm.id}`}>
-        <img src={pm.sprites.front_default} alt={pm.species.name}></img>
-        <p>
-          <em className="iconfont">&#xe625;</em>
-          {pm.id}
-        </p>
-        <p className='capitalize'>{pm.species.name}</p>
-      </Link>
-    </div>
-  ));
+import './PokemonList.css'
 
+// Generate the Pokemon List view
+
+const PokemonList = ({ pms_detail }) => {
   return (
     <div className="pokemon_list">
       <Route path="/pokemon/:pm_id" >
         <PokemonView pms_detail={pms_detail}></PokemonView>
       </Route>
-      {pmList}
+      {
+        pms_detail.map((pm) => (
+          <PokemonPreview key={`pm${pm.id}`} pm={pm}/>
+        ))
+      }
     </div>
   );
 };
+
+const PokemonPreview = ({ pm }) => {
+  return (
+    <Link className='pokemon_preview' to={`/pokemon/${pm.id}`} >
+      <img src={pm.sprites.front_default} alt={pm.species.name}></img>
+      <p>
+        <em className="iconfont">&#xe625;</em>
+        {pm.id}
+      </p>
+      <p className='capitalize'>{pm.species.name}</p>
+    </Link>
+  )
+}
 
 export default PokemonList;

@@ -1,20 +1,23 @@
 import "./App.css";
 
 import { useState, useEffect } from "react";
-import Pokeball from "./Components/Pokeball";
 import PokemonList from "./Components/PokemonList";
 import apiGen from "./Api/apiGen";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Nav } from "./Components/Nav";
+import { Header } from "./Components/Header";
+
+import './Components/Search.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const nationalPMDexCount = 898;
 
 function promiseGenfetchPokemon(offset = 1, limit = nationalPMDexCount) {
   const pmPromises = [];
-  Array.from({length: nationalPMDexCount}, (_, i) => i + offset).map((i) => 
+  Array.from({ length: nationalPMDexCount }, (_, i) => i + offset).map((i) =>
     pmPromises.push(apiGen.getPokemonByName(i))
-  )
+  );
   return Promise.all(pmPromises);
 }
 
@@ -42,26 +45,16 @@ const App = () => {
 
   return (
     <div>
-      <Nav></Nav>
-      <input
-        type="search"
-        placeholder="Search Pokemon"
-        className="search-bar"
-        onChange={(e) => setSearchField(e.target.value)}
-      />
       <Router>
+        <Header></Header>
         <div className="App">
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/pokemon">Pokemon List</Link>
-              </li>
-            </ul>
-          </nav>
-          <Pokeball />
+          <input
+            className="search-bar"
+            type="text"
+            placeholder="Search for pokemon, moves, items"
+            onChange={(e) => setSearchField(e.target.value)}
+          />
+          <FontAwesomeIcon icon={faSearch}/>
           <Route path="/(|pokemon)">
             <PokemonList pms_detail={getFilteredPMs(pms)}></PokemonList>
           </Route>

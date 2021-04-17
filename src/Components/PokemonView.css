@@ -1,0 +1,33 @@
+.pokemon_view {
+  position:relative;
+  margin-top: 70px;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(241,196,15,1);
+  z-index: 3;
+}
+.pokemon_view table {
+  margin: auto;
+  font-size: 15px;
+  line-height: 20px;
+}
+.pokemon_view td {
+  text-align: left;
+  padding-bottom: 10px;
+}
+.pokemon_view td:first-child {
+  text-align: right;
+  padding-right: 50px;
+} 
+
+.pokemon_view img {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  transform: scale(2.5);
+}
+
+.back_icon {
+  position:inherit;
+  z-index: 2;
+}
