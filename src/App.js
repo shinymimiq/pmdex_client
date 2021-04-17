@@ -2,12 +2,13 @@ import "./App.css";
 
 import { useState, useEffect } from "react";
 import PokemonList from "./Components/PokemonList";
+import { PokemonView } from "./Components/PokemonView";
 import apiGen from "./Api/apiGen";
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Header } from "./Components/Header";
 
-import './Components/Search.css';
+import "./Components/Search.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
@@ -54,10 +55,15 @@ const App = () => {
             placeholder="Search for pokemon, moves, items"
             onChange={(e) => setSearchField(e.target.value)}
           />
-          <FontAwesomeIcon icon={faSearch}/>
-          <Route path="/(|pokemon)">
-            <PokemonList pms_detail={getFilteredPMs(pms)}></PokemonList>
-          </Route>
+          <FontAwesomeIcon icon={faSearch} />
+          <Switch>
+            <Route exact path="/(|pokemon)">
+              <PokemonList pms_detail={getFilteredPMs(pms)}></PokemonList>
+            </Route>
+            <Route path="/pokemon/:pm_id">
+              <PokemonView pms_detail={pms}></PokemonView>
+            </Route>
+          </Switch>
         </div>
       </Router>
     </div>

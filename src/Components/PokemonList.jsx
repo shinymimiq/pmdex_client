@@ -1,4 +1,3 @@
-import { PokemonView } from "./PokemonView";
 import { Route, Link } from "react-router-dom";
 
 import './PokemonList.css'
@@ -8,9 +7,6 @@ import './PokemonList.css'
 const PokemonList = ({ pms_detail }) => {
   return (
     <div className="pokemon_list">
-      <Route path="/pokemon/:pm_id" >
-        <PokemonView pms_detail={pms_detail}></PokemonView>
-      </Route>
       {
         pms_detail.map((pm) => (
           <PokemonPreview key={`pm${pm.id}`} pm={pm}/>
