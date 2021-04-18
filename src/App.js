@@ -11,6 +11,7 @@ import { Header } from "./Components/Header";
 import "./Components/Search.css";
 import LoadingPage from "./Pages/Loading";
 import NotFoundPage from "./Pages/404Page";
+import PokemonAvatar from "./Components/PokemonView/PokemonAvatar";
 
 const nationalPMDexCount = 898;
 
@@ -65,6 +66,7 @@ const App = () => {
               <PokemonView pms_detail={pms}></PokemonView>
             )}
           </Route>
+          <Route path='/avatar' component={PokemonAvatar}/>
           <Route component={NotFoundPage} />
         </Switch>
       </div>
