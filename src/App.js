@@ -10,6 +10,7 @@ import { Header } from "./Components/Header";
 
 import "./Components/Search.css";
 import LoadingPage from "./Pages/Loading";
+import NotFoundPage from "./Pages/404Page";
 
 const nationalPMDexCount = 898;
 
@@ -51,17 +52,21 @@ const App = () => {
     <Router>
       <Header searchHandleOnChange={handleOnChange}></Header>
       <div className="App">
-        {pms.length < nationalPMDexCount && <LoadingPage />}
-        {pms.length === nationalPMDexCount && (
-          <Switch>
-            <Route exact path="/(|pokemon)">
+        <Switch>
+          <Route exact path="/(|pokemon)">
+            {pms.length < nationalPMDexCount && <LoadingPage />}
+            {pms.length === nationalPMDexCount && (
               <PokemonList pms_detail={getFilteredPMs(pms)}></PokemonList>
-            </Route>
-            <Route path="/pokemon/:pm_id">
+            )}
+          </Route>
+          <Route path="/pokemon/:pm_id">
+            {pms.length < nationalPMDexCount && <LoadingPage />}
+            {pms.length === nationalPMDexCount && (
               <PokemonView pms_detail={pms}></PokemonView>
-            </Route>
-          </Switch>
-        )}
+            )}
+          </Route>
+          <Route component={NotFoundPage} />
+        </Switch>
       </div>
     </Router>
   );

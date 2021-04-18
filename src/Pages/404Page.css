@@ -1,0 +1,7 @@
+.page_not_found {
+    position:fixed;
+    font-size: 50pt;
+    font-weight: bold;
+    top: 100px;
+    left: 40%;
+}
