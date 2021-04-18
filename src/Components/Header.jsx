@@ -5,7 +5,7 @@ import { ReactComponent as Logo } from "../Assets/pokeball-pokemon-svgrepo-com.s
 
 import "./Header.css";
 
-export const Header = () => {
+export const Header = ({searchHandleOnChange}) => {
   return (
     <div className="header" id="header">
       <Link className="logo-container" to="/">
@@ -25,9 +25,24 @@ export const Header = () => {
           Items
         </Link>
       </div>
+      <Search handleOnChange={searchHandleOnChange}/>
     </div>
   );
 };
+
+
+const Search = ({ handleOnChange }) => {
+  return (
+    <div className='search'>
+      <input
+        className="search-bar"
+        type="text"
+        placeholder="Search for pokemon"
+        onChange={handleOnChange}
+      />
+    </div>
+  )
+}
 
 export const SideNav = () => {
   return (

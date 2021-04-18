@@ -9,9 +9,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Header } from "./Components/Header";
 
 import "./Components/Search.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import ScrollToTop, {ScrollToTopOnMount} from "./utils/ScrollToTop";
 
 const nationalPMDexCount = 898;
 
@@ -45,17 +42,14 @@ const App = () => {
     run();
   }, []); // <-- Have to pass in [] here!
 
+  const handleOnChange = (e) => {
+    setSearchField(e.target.value);
+  }
+
   return (
       <Router>
-      {/* <ScrollToTop/> */}
-      <Header></Header>
+      <Header searchHandleOnChange={handleOnChange}></Header>
         <div className="App">
-          <input
-            className="search-bar"
-            type="text"
-            placeholder="Search for pokemon"
-            onChange={(e) => setSearchField(e.target.value)}
-          />
           <Switch>
             <Route exact path="/(|pokemon)">
               <PokemonList pms_detail={getFilteredPMs(pms)}></PokemonList>
