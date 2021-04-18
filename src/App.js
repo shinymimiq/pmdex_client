@@ -11,7 +11,7 @@ import { Header } from "./Components/Header";
 import "./Components/Search.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import {ScrollRestoration} from "./utils/ScrollToTop";
+import ScrollToTop, {ScrollToTopOnMount} from "./utils/ScrollToTop";
 
 const nationalPMDexCount = 898;
 
@@ -47,7 +47,7 @@ const App = () => {
 
   return (
       <Router>
-      <ScrollRestoration/>
+      <ScrollToTop/>
       <Header></Header>
         <div className="App">
           <input
