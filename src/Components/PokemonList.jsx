@@ -8,7 +8,7 @@ import './PokemonList.css'
 const PokemonList = ({ pms_detail }) => {
   return (
     <div className="pokemon_list">
-      <ScrollToTopOnMount/>
+      {/* <ScrollToTopOnMount/> */}
       {
         pms_detail.map((pm) => (
           <PokemonPreview key={`pm${pm.id}`} pm={pm}/>

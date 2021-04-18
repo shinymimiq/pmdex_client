@@ -47,7 +47,7 @@ const App = () => {
 
   return (
       <Router>
-      <ScrollToTop/>
+      {/* <ScrollToTop/> */}
       <Header></Header>
         <div className="App">
           <input

@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import MovesView from "./MovesView";
 
 import './PokemonView.css'
+import { ScrollToTopOnMount } from "../utils/ScrollToTop";
 
 // Show: Sprites, Name, ID, types, weight, height, abilities.
 export const PokemonView = (props) => {
@@ -57,7 +58,8 @@ export const PokemonView = (props) => {
   }, [pm.abilities]);
 
   return (
-    <div className="pokemon_view">
+    <div className="pokemon_view" id='pokemon_view'>
+      <ScrollToTopOnMount/>
       <Link
         className='back_icon'
         to="/pokemon"
@@ -66,44 +68,28 @@ export const PokemonView = (props) => {
       </Link>
 
       <img src={pm.sprites.front_default} alt={pm.name}></img>
-      <table>
-        <tr>
-          <td>ID:</td>
-          <td>{pm.id}</td>
-        </tr>
-        <tr>
-          <td>Name:</td>
-          <td>{pm.name}</td>
-        </tr>
-        <tr>
-          <td>Height:</td>
-          <td>{pm.height}</td>
-        </tr>
-        <tr>
-          <td>Weight:</td>
-          <td>{pm.weight}</td>
-        </tr>
-        <tr>
-          <td>Types:</td>
-          <td>
-            <TypeView types={pm.types}></TypeView>
-          </td>
-        </tr>
-        <tr>
-          <td>Abilities:</td>
-          <td className="Abilities">{abilities}</td>
-          <td className="Abilities_full">
-            {!abilities_info && "LOADING...."}
-            {abilities_info && <PokemonAbility ab={abilities_info} />}
-          </td>
-        </tr>
-        <tr>
-          <td>Moves:</td>
-          <td className="moves">
-            <MovesView moves={pm.moves}></MovesView>
-          </td>
-        </tr>
-      </table>
+        <p>ID:</p>
+        <p>{pm.id}</p>
+        <p>Name:</p>
+        <p>{pm.name}</p>
+        <p>Height:</p>
+        <p>{pm.height}</p>
+        <p>Weight:</p>
+        <p>{pm.weight}</p>
+        <p>Types:</p>
+        <p>
+          <TypeView types={pm.types}></TypeView>
+        </p>
+        <p>Abilities:</p>
+        <p className="Abilities">{abilities}</p>
+        <p className="Abilities_full">
+          {!abilities_info && "LOADING...."}
+          {abilities_info && <PokemonAbility ab={abilities_info} />}
+        </p>
+        <p>Moves:</p>
+        <p className="moves">
+          <MovesView moves={pm.moves}></MovesView>
+        </p>
     </div>
   );
 };
