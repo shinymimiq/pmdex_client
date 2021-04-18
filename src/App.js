@@ -11,6 +11,7 @@ import { Header } from "./Components/Header";
 import "./Components/Search.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import {ScrollRestoration} from "./utils/ScrollToTop";
 
 const nationalPMDexCount = 898;
 
@@ -45,17 +46,16 @@ const App = () => {
   }, []); // <-- Have to pass in [] here!
 
   return (
-    <div>
       <Router>
-        <Header></Header>
+      <ScrollRestoration/>
+      <Header></Header>
         <div className="App">
           <input
             className="search-bar"
             type="text"
-            placeholder="Search for pokemon, moves, items"
+            placeholder="Search for pokemon"
             onChange={(e) => setSearchField(e.target.value)}
           />
-          <FontAwesomeIcon icon={faSearch} />
           <Switch>
             <Route exact path="/(|pokemon)">
               <PokemonList pms_detail={getFilteredPMs(pms)}></PokemonList>
@@ -66,7 +66,6 @@ const App = () => {
           </Switch>
         </div>
       </Router>
-    </div>
   );
 };
 
