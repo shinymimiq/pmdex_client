@@ -1,23 +1,26 @@
 .pokemon_list{
   display: flex;
   position: relative;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-end;
   flex-wrap: wrap;
   padding: 1% 3%;
 }
 
 .pokemon_preview {
-  min-width: 12%;
-  margin: 10px;
-  transition:0.25s transform 0.25s ease-out;
+  flex-basis:auto;
+  margin: 1%;
+  transition:transform 0.15s ;
+  /* border: thick double black; */
+  background-color: slategrey;
+  color:snow;
+  border-radius: 10px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: slategrey;
 }
-.pokemon_preview a {
-  color: gray;
-  transition: 0.5s;
-}
+
 .pokemon_preview:hover {
   transform: scale(1.08);
-}
-.pokemon_preview:hover a {
-  color: lightcoral;
+  color:tomato;
 }
