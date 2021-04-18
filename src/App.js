@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Header } from "./Components/Header";
 
 import "./Components/Search.css";
+import LoadingPage from "./Pages/Loading";
 
 const nationalPMDexCount = 898;
 
@@ -44,12 +45,14 @@ const App = () => {
 
   const handleOnChange = (e) => {
     setSearchField(e.target.value);
-  }
+  };
 
   return (
-      <Router>
+    <Router>
       <Header searchHandleOnChange={handleOnChange}></Header>
-        <div className="App">
+      <div className="App">
+        {pms.length < nationalPMDexCount && <LoadingPage />}
+        {pms.length === nationalPMDexCount && (
           <Switch>
             <Route exact path="/(|pokemon)">
               <PokemonList pms_detail={getFilteredPMs(pms)}></PokemonList>
@@ -58,8 +61,9 @@ const App = () => {
               <PokemonView pms_detail={pms}></PokemonView>
             </Route>
           </Switch>
-        </div>
-      </Router>
+        )}
+      </div>
+    </Router>
   );
 };
 

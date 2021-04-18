@@ -1,0 +1,7 @@
+.loading {
+    position:fixed;
+    font-size: 50pt;
+    font-weight: bold;
+    top: 100px;
+    left: 40%;
+}
