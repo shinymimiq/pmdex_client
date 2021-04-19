@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+import "../Assets/iconfont.css";
 import './PokemonList.css'
 
 // Generate the Pokemon List view
