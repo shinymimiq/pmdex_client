@@ -2,7 +2,6 @@ import "./App.css";
 
 import { useState, useEffect } from "react";
 import PokemonList from "./Components/PokemonList";
-import { PokemonView } from "./Components/PokemonView";
 import apiGen from "./Api/apiGen";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
