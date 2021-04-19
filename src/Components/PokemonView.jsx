@@ -27,18 +27,6 @@ export const PokemonView = (props) => {
     <p key={ability.ability.name}>{ability.ability.name}</p>
   ));
 
-
-
-  // const showAbilitiesDetail = () => {
-  //   console.log("HOVER")
-  //   return (
-  //   <div>
-  //     {!abilities_info && "LOADING...."}
-  //     {abilities_info && <PokemonAbility ab={abilities_info}/>}
-  //   </div>
-  //   )
-  // }
-
   useEffect(() => {
     const getAbility = async () => {
       return Promise.all(

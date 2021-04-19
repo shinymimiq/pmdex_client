@@ -12,6 +12,7 @@ import "./Components/Search.css";
 import LoadingPage from "./Pages/Loading";
 import NotFoundPage from "./Pages/404Page";
 import PokemonAvatar from "./Components/PokemonView/PokemonAvatar";
+import { PokemonPage } from "./Pages/PokemonPage";
 
 const nationalPMDexCount = 898;
 
@@ -60,10 +61,10 @@ const App = () => {
               <PokemonList pms_detail={getFilteredPMs(pms)}></PokemonList>
             )}
           </Route>
-          <Route path="/pokemon/:pm_id">
+          <Route path="/pokemon/:pmID">
             {pms.length < nationalPMDexCount && <LoadingPage />}
             {pms.length === nationalPMDexCount && (
-              <PokemonView pms_detail={pms}></PokemonView>
+              <PokemonPage/>
             )}
           </Route>
           <Route path='/avatar' component={PokemonAvatar}/>

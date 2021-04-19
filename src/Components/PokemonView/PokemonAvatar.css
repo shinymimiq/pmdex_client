@@ -1,6 +1,6 @@
 .pm-avatar {
-  height: 500px;
-  width: 500px;
+  /* height: 500px;
+  width: 500px; */
   padding: 10px;
 }
 
@@ -28,7 +28,7 @@
 
 .pm-avatar-foreground {
   position:relative;
-  bottom: 500px;
+  bottom: 300px;
   width:100%;
   height:100%;
   flex-direction: column;
@@ -37,7 +37,7 @@
 
 .pm-sprite-container {
   width: 100%;
-  height: 70%;
+  height: 50%;
   margin-top: 10%;
 }
 

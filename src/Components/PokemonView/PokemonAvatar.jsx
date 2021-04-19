@@ -3,23 +3,25 @@ import {TYPE_COLOR} from '../../Assets/PokemonTypeColour';
 
 import './PokemonAvatar.css';
 
-const PokemonAvatar = ( ) => {
-  const pm = {
-    types: [
-      {type: 'ghost'},
-      {type: 'fairy'}
-    ]
-  }
+const PokemonAvatar = ( { pm } ) => {
+  // const pm = {
+    // types: [
+      // {type: 'ghost'},
+      // {type: 'fairy'}
+    // ]
+  // }
+  const pmTypes = []
+  pm.types.map((type) => pmTypes.push(type.type.name));
 
   return (
     <div className='pm-avatar'>
-      <PokemonAvatarBackground types={pm.types}/>
+      <PokemonAvatarBackground types={pmTypes}/>
       <div className='pm-avatar-foreground'>
         <div className='pm-sprite-container'>
-          <img className='pm-sprite' src="https://img.pokemondb.net/sprites/sun-moon/shiny/mimikyu.png" alt="Mimikyu"/> 
+          <img className='pm-sprite' src={pm.sprites.front_default} alt={pm.species.name}/> 
         </div>
           <div className='pm-id-name-container'>
-            <p className='pm-id-name'>#778  Mimikyu</p>
+            <p className='pm-id-name'>#{pm.id}  {pm.species.name.toUpperCase()}</p>
           </div>
       </div>
     </div>
@@ -29,12 +31,8 @@ const PokemonAvatar = ( ) => {
 const PokemonAvatarBackground = ( { types }) => {
   return (
     <div className="pm-avatar-background" >
-      <div className='pm-avatar-left' style={{ 'background-color': `${TYPE_COLOR[types[0].type]}`}}/>
-      { types.length === 2 ? 
-        <div className='pm-avatar-right' style={{ 'background-color': `${TYPE_COLOR[types[1].type]}`}}/>
-        :
-        null
-      }
+      <div className='pm-avatar-left' style={{ 'backgroundColor': `${TYPE_COLOR[types[0]]}`}}/>
+      <div className='pm-avatar-right' style={{ 'backgroundColor': (types.length === 2)? `${TYPE_COLOR[types[1]]}` : `${TYPE_COLOR[types[0]]}`}}/>
     </div>
   )
 
