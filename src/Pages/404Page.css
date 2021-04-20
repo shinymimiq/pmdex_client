@@ -1,7 +1,15 @@
 .page_not_found {
     position:fixed;
-    font-size: 50pt;
-    font-weight: bold;
+    font-size: 30pt;
     top: 100px;
     left: 40%;
+}
+.page_not_found p {
+    font-size: 40pt;
+    font-weight: bold;
+    margin-top: 30px;
+
+}
+.page_not_found img {
+    margin-top: 30px;
 }
