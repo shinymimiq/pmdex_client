@@ -1,0 +1,50 @@
+.pokemon-info-container {
+    color:mediumturquoise;
+    font-size: 50px;
+    border: 1px solid black;
+    margin: 5px;
+    display: flex;
+}
+
+.pokemon-info-basic {
+    display: flex;
+    align-content: flex-start;
+    font-size: 15px;
+    color: black;
+    border: 1px solid black;
+    margin:5px;
+    flex-direction: column;
+    flex-shrink: 3;
+}
+
+.pokemon-info-basic p {
+    align-self: baseline;
+}
+
+.pokemon-base-stats {
+    width: 40vw;
+    display: flex;
+    align-content: flex-start;
+    font-family: 'Fira Mono', monospace;
+    font-size: 15px;
+    color: black;
+    border: 1px solid black;
+    margin:5px;
+    flex-direction: column;
+    flex-grow: 4;
+}
+
+.pokemon-base-stats p {
+    align-self: baseline;
+}
+
+.pokemon-train-breed {
+    display: flex;
+    align-content: flex-start;
+    font-size: 15px;
+    color: black;
+    border: 1px solid black;
+    margin:5px;
+    flex-direction: column;
+    flex-grow: 4;
+}

@@ -4,6 +4,7 @@ import {useParams} from 'react-router-dom';
 
 import apiGen from "../Api/apiGen";
 import PokemonAvatar from "../Components/PokemonView/PokemonAvatar";
+import PokemonInfoView from "../Components/PokemonView/PokemonInfoView";
 import LoadingPage from "./Loading";
 
 import './PokemonPage.css';
@@ -30,9 +31,7 @@ export const PokemonPage = () => {
       {pokemon  ? (
         <div className='pokemon-page'>
           <PokemonAvatar pm={pokemon} />
-          <div className="pokemon-basic-info">
-            {pokemon.species.name.toUpperCase()} BASIC INFO
-          </div>
+          <PokemonInfoView pm={pokemon}/>
           <div className="pokemon-move-list">MOVE LIST</div>
           <div className="pokemon-evo-chain">EVO CHAIN</div>
         </div>
