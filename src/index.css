@@ -97,80 +97,33 @@ p.capitalize {
 
 @media screen and (max-width:1024px){
   .pokemon_preview {
-    width: 15%;
-    margin-left: 5%;
-    margin-right: 5%;
-    font-size: 25px;
-  }
-  .top-navi a{
-    width: ;
-    font-size: 25px;
-  }
-  .side-navi {
-    width: 50px;
-  }
-  .top-navi ul li a {
-    width: 100px;
-    font-size: 30px;
+    width: 20%;
+    font-size: 20px;
   }
   .search-bar {
-    margin-top: 20px;
-    width: 420px;
-    height: 40px;
-    font-size: 38px;
+    font-size: 25px;
   }
 }
 @media screen and (max-width:768px){
   .pokemon_preview {
-    width: 13%;
-    margin-left: 10%;
-    margin-right: 10%;
-    font-size: 20px;
+    width: 28%;
   }
-  .side-navi {
-    width: 50px;
-  }
-  .side-navi a {
-    font-size: 20px;
-  }
-  .top-navi ul li a {
-    width: 100px;
-    font-size: 25px;
-  }
+  
   .search-bar {
-    margin-top: 20px;
     width: 320px;
     height: 30px;
-    font-size: 28px;
+    font-size: 25px;
   }
 }
 @media screen and (max-width:640px){
   .pokemon_preview {
-    width: 30%;
-    margin-left: 10%;
-    margin-right: 10%;
-    font-size: 15px;
+    width: 45%;
   }
-  .top-navi a{
-    padding: 0 10px;
-  }
-  .side-navi {
-    width: 30px;
-  }
-  .side-navi a {
-    font-size: 12px;
-  }
-  .pokeball {
-    display: none;
-  }
-  .top-navi ul li a {
-    width: 50px;
-    font-size: 18px;
+  .logo-container{
+    display: none !important;
   }
   .search-bar {
-    margin:15px 18px 10px;
-    width: 320px;
-    height: 30px;
-    font-size: 28px;
+    width: 100px !important;
+    font-size: 20px;
   }
 }

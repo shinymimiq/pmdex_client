@@ -15,9 +15,7 @@
   background-color: slategrey;
   color:snow;
   border-radius: 10px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: slategrey;
+  border: 5px solid slategrey;
 }
 
 .pokemon_preview:hover {
