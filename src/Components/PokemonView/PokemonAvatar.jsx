@@ -1,41 +1,57 @@
-import React from 'react'
-import {TYPE_COLOR} from '../../Assets/PokemonTypeColour';
+import React from "react";
+import { TYPE_COLOR } from "../../Assets/PokemonTypeColour";
 
-import './PokemonAvatar.css';
+import "./PokemonAvatar.css";
 
-const PokemonAvatar = ( { pm } ) => {
+const PokemonAvatar = ({ pm }) => {
   // const pm = {
-    // types: [
-      // {type: 'ghost'},
-      // {type: 'fairy'}
-    // ]
+  // types: [
+  // {type: 'ghost'},
+  // {type: 'fairy'}
+  // ]
   // }
-  const pmTypes = []
+  const pmTypes = [];
   pm.types.map((type) => pmTypes.push(type.type.name));
 
   return (
-    <div className='pm-avatar'>
-      <PokemonAvatarBackground types={pmTypes}/>
-      <div className='pm-avatar-foreground'>
-        <div className='pm-sprite-container'>
-          <img className='pm-sprite' src={pm.sprites.front_default} alt={pm.species.name}/> 
+    <div className="pm-avatar">
+      <PokemonAvatarBackground types={pmTypes} />
+      <div className="pm-avatar-foreground">
+        <div className="pm-sprite-container">
+          <img
+            className="pm-sprite"
+            src={pm.sprites.front_default}
+            alt={pm.species.name}
+          />
         </div>
-          <div className='pm-id-name-container'>
-            <p className='pm-id-name'>#{pm.id}  {pm.species.name.toUpperCase()}</p>
-          </div>
+        <div className="pm-id-name-container">
+          <p className="pm-id-name">
+            #{pm.id} {pm.species.name.toUpperCase()}
+          </p>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-const PokemonAvatarBackground = ( { types }) => {
+const PokemonAvatarBackground = ({ types }) => {
   return (
-    <div className="pm-avatar-background" >
-      <div className='pm-avatar-left' style={{ 'backgroundColor': `${TYPE_COLOR[types[0]]}`}}/>
-      <div className='pm-avatar-right' style={{ 'backgroundColor': (types.length === 2)? `${TYPE_COLOR[types[1]]}` : `${TYPE_COLOR[types[0]]}`}}/>
+    <div className="pm-avatar-background">
+      <div
+        className="pm-avatar-left"
+        style={{ backgroundColor: `${TYPE_COLOR[types[0]]}` }}
+      />
+      <div
+        className="pm-avatar-right"
+        style={{
+          backgroundColor:
+            types.length === 2
+              ? `${TYPE_COLOR[types[1]]}`
+              : `${TYPE_COLOR[types[0]]}`,
+        }}
+      />
     </div>
-  )
+  );
+};
 
-}
-
-export default PokemonAvatar
+export default PokemonAvatar;
