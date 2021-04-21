@@ -1,4 +1,4 @@
-import { faCalculator } from "@fortawesome/free-solid-svg-icons";
+// import { faCalculator } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -32,15 +32,15 @@ export const PokemonPage = () => {
       {pokemon ? (
         <div className="pokemon-page">
           <div className="pm-details">
-              <PokemonAvatar pm={pokemon} />
-              <PokemonInfoBasic pm={pokemon}/>
-              {/* <PokemonInfoView pm={pokemon} /> */}
+            <PokemonAvatar pm={pokemon} />
+            <PokemonInfoBasic pm={pokemon} />
+            {/* <PokemonInfoView pm={pokemon} /> */}
           </div>
           <div className="pm-details2">
             <div className="info-left">
-                  <PokemonBaseStats pm={pokemon}/>
-                  <PokemonTrainBreed pm={pokemon}/>
-                  <div className="pokemon-evo-chain">EVO CHAIN</div>
+              <PokemonBaseStats pm={pokemon} />
+              <PokemonTrainBreed pm={pokemon} />
+              <div className="pokemon-evo-chain">EVO CHAIN</div>
             </div>
             <div className="pokemon-move-list">MOVE LIST</div>
           </div>
@@ -91,53 +91,70 @@ const PokemonInfoBasic = ({ pm }) => {
 };
 
 const PokemonBaseStats = ({ pm }) => {
+  // extract stats locally
+  const stats = {};
+  pm.stats.map((stat) => {
+    stats[stat.stat.name] = stat.base_stat;
+    return stats;
+  });
+
   return (
     <div className="pokemon-base-stats">
       <table>
         <tr>
           <td>HP:</td>
-          <td>55</td>
+          <td>{stats["hp"]}</td>
           <td>
-            <div className="HP_pm"></div>
+            <div className="HP_pm"
+              style={{ width: `${(stats['hp'] * 100) / 255}%` }}
+						></div>
           </td>
         </tr>
         <tr>
           <td>ATK:</td>
-          <td>90</td>
+          <td>{stats["attack"]}</td>
           <td>
-            <div className="ATK_pm"></div>
+            <div className="ATK_pm"
+              style={{ width: `${(stats['attack'] * 100) / 255}%` }}
+						></div>
           </td>
         </tr>
         <tr>
           <td>DEF:</td>
-          <td>80</td>
+          <td>{stats["defense"]}</td>
           <td>
-            <div className="DEF_pm"></div>
+            <div className="DEF_pm"
+              style={{ width: `${(stats['defense'] * 100) / 255}%` }}
+						></div>
           </td>
         </tr>
         <tr>
           <td>SpA:</td>
-          <td>50</td>
+          <td>{stats["special-attack"]}</td>
           <td>
-            <div className="SPA_pm"></div>
+            <div className="SPA_pm"
+              style={{ width: `${(stats['special-attack'] * 100) / 255}%` }}
+						></div>
           </td>
         </tr>
         <tr>
           <td>SpD:</td>
-          <td>105</td>
+          <td>{stats["special-defense"]}</td>
           <td>
-            <div className="SPD_pm"></div>
+            <div
+              className="SPD_pm"
+              style={{ width: `${(stats['special-defense'] * 100) / 255}%` }}
+            ></div>
           </td>
-
         </tr>
         <tr>
           <td>SPE:</td>
-          <td>96</td>
+          <td>{stats["speed"]}</td>
           <td>
-            <div className="SPE_pm"
-            // 米花帮我看看为什么没生效？
-            // 希望达成：div宽度=（数值/255）%
-            style={{width:"(96/255)*100%"}}></div>
+            <div
+              className="SPE_pm"
+              style={{ width: `${(stats['speed'] * 100) / 255}%` }}
+            ></div>
           </td>
         </tr>
       </table>
@@ -153,5 +170,3 @@ const PokemonTrainBreed = ({ pm }) => {
     </div>
   );
 };
-
-
