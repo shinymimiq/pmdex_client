@@ -18,30 +18,39 @@ export const PokemonInfoBasic = ({ pm }) => {
       <table>
         <tr>
           <td>ID:</td>
-          <td>778</td>
+          <td>{pm.id}</td>
         </tr>
         <tr>
           <td>Weight:</td>
-          <td>0.7kg</td>
+          <td>{cWH(pm.weight)}kg</td>
         </tr>
         <tr>
           <td>Height:</td>
-          <td>0.2m</td>
+          <td>{cWH(pm.height)}m</td>
         </tr>
         <tr>
           <td>Type:</td>
-          <td>Fairy/Ghost</td>
+          {/* TODO: better to handle types by a component  */}
+          <td>
+            {pm.types.map((type) => {
+              return type.type.name + "/";
+            })}
+          </td>
         </tr>
         <tr>
           <td>Abilities:</td>
-          <td>Disguise</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>Disguise</td>
+          {/* TODO: better to handle abilities by a component  */}
+          <td>
+            {pm.abilities.map((ab) => {
+              return ab.ability.name + "/";
+            })}
+          </td>
         </tr>
       </table>
+      {/* Dex description is in the pokemon-species end point. */}
+      {/* Could be fetched combine with info like breed and train */}
       <p>Dex Description</p>
+      <p>JUST TEMPLATES: </p>
       <p>
         It wears a rag fashioned into a Pikachu costume in an effort to look
         less scary. Unfortunately, the costume only makes it creepier.
@@ -65,36 +74,40 @@ export const PokemonBaseStats = ({ pm }) => {
           <td>HP:</td>
           <td>{stats["hp"]}</td>
           <td>
-            <div className="HP_pm"
-              style={{ width: `${(stats['hp'] * 100) / 255}%` }}
-						></div>
+            <div
+              className="HP_pm"
+              style={{ width: `${(stats["hp"] * 100) / 255}%` }}
+            ></div>
           </td>
         </tr>
         <tr>
           <td>ATK:</td>
           <td>{stats["attack"]}</td>
           <td>
-            <div className="ATK_pm"
-              style={{ width: `${(stats['attack'] * 100) / 255}%` }}
-						></div>
+            <div
+              className="ATK_pm"
+              style={{ width: `${(stats["attack"] * 100) / 255}%` }}
+            ></div>
           </td>
         </tr>
         <tr>
           <td>DEF:</td>
           <td>{stats["defense"]}</td>
           <td>
-            <div className="DEF_pm"
-              style={{ width: `${(stats['defense'] * 100) / 255}%` }}
-						></div>
+            <div
+              className="DEF_pm"
+              style={{ width: `${(stats["defense"] * 100) / 255}%` }}
+            ></div>
           </td>
         </tr>
         <tr>
           <td>SpA:</td>
           <td>{stats["special-attack"]}</td>
           <td>
-            <div className="SPA_pm"
-              style={{ width: `${(stats['special-attack'] * 100) / 255}%` }}
-						></div>
+            <div
+              className="SPA_pm"
+              style={{ width: `${(stats["special-attack"] * 100) / 255}%` }}
+            ></div>
           </td>
         </tr>
         <tr>
@@ -103,7 +116,7 @@ export const PokemonBaseStats = ({ pm }) => {
           <td>
             <div
               className="SPD_pm"
-              style={{ width: `${(stats['special-defense'] * 100) / 255}%` }}
+              style={{ width: `${(stats["special-defense"] * 100) / 255}%` }}
             ></div>
           </td>
         </tr>
@@ -113,7 +126,7 @@ export const PokemonBaseStats = ({ pm }) => {
           <td>
             <div
               className="SPE_pm"
-              style={{ width: `${(stats['speed'] * 100) / 255}%` }}
+              style={{ width: `${(stats["speed"] * 100) / 255}%` }}
             ></div>
           </td>
         </tr>
@@ -129,6 +142,11 @@ export const PokemonTrainBreed = ({ pm }) => {
       <p>Hatch time: 5140-5396 steps</p>
     </div>
   );
+};
+
+//Utils func:
+const cWH = (data) => {
+  return data / 10.0;
 };
 
 export default PokemonInfoView;

@@ -20,6 +20,9 @@ const PokemonAvatar = ({ pm }) => {
           <img
             className="pm-sprite"
             src={pm.sprites.front_default}
+            // TODO: use some service worker to cache these high-def image
+            // before we enable it.
+            // src={pm.sprites.other['official-artwork'].front_default}
             alt={pm.species.name}
           />
           <p className="pm-id-name">
