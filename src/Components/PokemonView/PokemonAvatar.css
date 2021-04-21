@@ -2,6 +2,7 @@
   /* height: 500px;
   width: 500px; */
   padding: 10px;
+  position: relative;
 }
 
 .pm-avatar-background {
@@ -27,18 +28,20 @@
 }
 
 .pm-avatar-foreground {
-  position:relative;
-  bottom: 300px;
+  position:absolute;
+  top:0;
+  left:0;
   width:100%;
   height:100%;
+  display:flex;
   flex-direction: column;
+  flex-direction: column;
+  justify-content: flex-end;
   align-content: flex-start;
 }
 
 .pm-sprite-container {
-  width: 100%;
-  height: 50%;
-  margin-top: 10%;
+  margin-bottom: 10px;
 }
 
 .pm-sprite {
@@ -51,6 +54,7 @@
 .pm-id-name-container {
   display: flex;
   justify-content: center;
+  margin-bottom: 40px;
 }
 
 .pm-id-name {
