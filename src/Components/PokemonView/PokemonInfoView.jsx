@@ -62,8 +62,10 @@ export const PokemonInfoBasic = ({ pm }) => {
 export const PokemonBaseStats = ({ pm }) => {
   // extract stats locally
   const stats = {};
+  let sum = 0;
   pm.stats.map((stat) => {
     stats[stat.stat.name] = stat.base_stat;
+    sum += stat.base_stat;
     return stats;
   });
 
@@ -72,7 +74,7 @@ export const PokemonBaseStats = ({ pm }) => {
       <table>
         <tr>
           <td>HP:</td>
-          <td>{stats["hp"]}</td>
+          <td>{stats.hp}</td>
           <td className='pm-stat-bar'>
             <div
               className="HP_pm"
@@ -82,7 +84,7 @@ export const PokemonBaseStats = ({ pm }) => {
         </tr>
         <tr>
           <td>ATK:</td>
-          <td>{stats["attack"]}</td>
+          <td>{stats.attack}</td>
           <td className='pm-stat-bar'>
             <div
               className="ATK_pm"
@@ -92,7 +94,7 @@ export const PokemonBaseStats = ({ pm }) => {
         </tr>
         <tr>
           <td>DEF:</td>
-          <td>{stats["defense"]}</td>
+          <td>{stats.defense}</td>
           <td className='pm-stat-bar'>
             <div
               className="DEF_pm"
@@ -122,13 +124,17 @@ export const PokemonBaseStats = ({ pm }) => {
         </tr>
         <tr>
           <td>SPE:</td>
-          <td>{stats["speed"]}</td>
+          <td>{stats.speed}</td>
           <td className='pm-stat-bar'>
             <div
               className="SPE_pm"
               style={{ width: `${(stats["speed"] * 100) / 150}%` }}
             ></div>
           </td>
+        </tr>
+        <tr>
+          <td>TOTAL:</td>
+          <td>{sum}</td>
         </tr>
       </table>
     </div>
