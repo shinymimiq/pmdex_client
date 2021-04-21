@@ -13,6 +13,8 @@ import NotFoundPage from "./Pages/404Page";
 import PokemonAvatar from "./Components/PokemonView/PokemonAvatar";
 import { PokemonPage } from "./Pages/PokemonPage";
 
+import {ScrollToTopOnMount} from "./utils/ScrollToTop";
+
 const nationalPMDexCount = 898;
 
 function promiseGenfetchPokemon(offset = 1, limit = nationalPMDexCount) {
@@ -51,6 +53,7 @@ const App = () => {
 
   return (
     <Router>
+      <ScrollToTopOnMount/>
       <Header searchHandleOnChange={handleOnChange}></Header>
       <div className="App">
         <Switch>
