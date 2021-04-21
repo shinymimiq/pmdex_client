@@ -16,20 +16,16 @@ const PokemonAvatar = ({ pm }) => {
   return (
     <div className="pm-avatar">
       <PokemonAvatarBackground types={pmTypes} />
-      <div className="pm-avatar-foreground">
-        <div className="pm-sprite-container">
+      <div className="pm-sprite-container">
           <img
             className="pm-sprite"
             src={pm.sprites.front_default}
             alt={pm.species.name}
           />
-        </div>
-        <div className="pm-id-name-container">
           <p className="pm-id-name">
             #{pm.id} {pm.species.name.toUpperCase()}
           </p>
         </div>
-      </div>
     </div>
   );
 };

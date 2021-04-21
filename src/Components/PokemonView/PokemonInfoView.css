@@ -3,18 +3,20 @@
     font-size: 50px;
     border: 1px solid black;
     margin: 5px;
-    display: flex;
+    float: left;
 }
 
+
 .pokemon-info-basic {
-    display: flex;
-    align-content: flex-start;
+    /* display: flex;
+    align-content: flex-start; */
     font-size: 15px;
     color: black;
     border: 1px solid black;
     margin:5px;
-    flex-direction: column;
-    flex-shrink: 3;
+    min-width: 220px;
+    /* flex-direction: column;
+    flex-shrink: 3; */
 }
 
 .pokemon-info-basic p {
@@ -47,4 +49,7 @@
     margin:5px;
     flex-direction: column;
     flex-grow: 4;
+}
+@media screen and (max-width:640px) {
+    
 }
