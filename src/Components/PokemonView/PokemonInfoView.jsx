@@ -73,60 +73,60 @@ export const PokemonBaseStats = ({ pm }) => {
         <tr>
           <td>HP:</td>
           <td>{stats["hp"]}</td>
-          <td>
+          <td className='pm-stat-bar'>
             <div
               className="HP_pm"
-              style={{ width: `${(stats["hp"] * 100) / 255}%` }}
+              style={{ width: `${(stats["hp"] * 100) / 150}%` }}
             ></div>
           </td>
         </tr>
         <tr>
           <td>ATK:</td>
           <td>{stats["attack"]}</td>
-          <td>
+          <td className='pm-stat-bar'>
             <div
               className="ATK_pm"
-              style={{ width: `${(stats["attack"] * 100) / 255}%` }}
+              style={{ width: `${(stats["attack"] * 100) / 150}%` }}
             ></div>
           </td>
         </tr>
         <tr>
           <td>DEF:</td>
           <td>{stats["defense"]}</td>
-          <td>
+          <td className='pm-stat-bar'>
             <div
               className="DEF_pm"
-              style={{ width: `${(stats["defense"] * 100) / 255}%` }}
+              style={{ width: `${(stats["defense"] * 100) / 150}%` }}
             ></div>
           </td>
         </tr>
         <tr>
           <td>SpA:</td>
           <td>{stats["special-attack"]}</td>
-          <td>
+          <td className='pm-stat-bar'>
             <div
               className="SPA_pm"
-              style={{ width: `${(stats["special-attack"] * 100) / 255}%` }}
+              style={{ width: `${(stats["special-attack"] * 100) / 150}%` }}
             ></div>
           </td>
         </tr>
         <tr>
           <td>SpD:</td>
           <td>{stats["special-defense"]}</td>
-          <td>
+          <td className='pm-stat-bar'>
             <div
               className="SPD_pm"
-              style={{ width: `${(stats["special-defense"] * 100) / 255}%` }}
+              style={{ width: `${(stats["special-defense"] * 100) / 150}%` }}
             ></div>
           </td>
         </tr>
         <tr>
           <td>SPE:</td>
           <td>{stats["speed"]}</td>
-          <td>
+          <td className='pm-stat-bar'>
             <div
               className="SPE_pm"
-              style={{ width: `${(stats["speed"] * 100) / 255}%` }}
+              style={{ width: `${(stats["speed"] * 100) / 150}%` }}
             ></div>
           </td>
         </tr>
