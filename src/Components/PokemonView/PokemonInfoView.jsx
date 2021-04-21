@@ -12,7 +12,8 @@ const PokemonInfoView = ({ pm }) => {
   );
 };
 
-const PokemonInfoBasic = () => {
+
+const PokemonInfoBasic = ({ pm }) => {
   return (
     <div className="pokemon-info-basic">
       <p>ID: 778</p>
@@ -32,7 +33,7 @@ const PokemonInfoBasic = () => {
   );
 };
 
-const PokemonBaseStats = () => {
+const PokemonBaseStats = ({ pm }) => {
   return (
     <div className="pokemon-base-stats">
       <p>.HP: ===============______</p>
@@ -45,7 +46,7 @@ const PokemonBaseStats = () => {
   );
 };
 
-const PokemonTrainBreed = () => {
+const PokemonTrainBreed = ({ pm }) => {
   return (
     <div className="pokemon-train-breed">
       <p>Egg Group: Amorphous</p>

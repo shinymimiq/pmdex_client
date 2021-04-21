@@ -1,36 +1,61 @@
 .pokemon-page {
-    display: grid;
-    --avatar-width: min(30vw, 300px);
-    grid-template-columns: var(--avatar-width) auto;
-    grid-template-rows: var(--avatar-width) auto auto;
-    justify-items: stretch;
-    padding: 10px;
+    height: 5000px;
 }
 
-.pm-avatar {
-    grid-column: 1/ 2;
-    grid-row: 1 / 2;
+.pm-details {
+    /* width: 100%; */
+    margin-top: 100px;
+}
+.pm-details .pm-avatar {
+    width: 300px;
+    float: left;
 }
 
-.pokemon-basic-info {
-    padding: 50px;
+.pokemon-info-basic {
+    height: 220px;
     border: 1px solid black;
-    grid-column: 2/3;
-    grid-row: 1/2;
-    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    min-width: 340px;
+}
+
+.info-left {
+    float: left;
+    height: auto;
+    margin-right: 10px;
+}
+.pokemon-base-stats,.pokemon-train-breed, .pokemon-evo-chain {
+    margin: 15px 0 10px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 300px;
+    background: white;
+}
+
+.pokemon-base-stats table td:nth-child(3n){
+    width: 255px;
+}
+.pokemon-base-stats td{
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.pokemon-base-stats div {
+    height: 18px;
+    background:#C9F0F5;
+    border: 1px solid #C9F0F5;
+    border-radius: 5px;
 }
 
 .pokemon-move-list {
-    margin: 10px;
-    padding: 50px;
+    display: flex;
+    height: 500px;
+    min-width: 340px;
+    margin: 20px;
     border: 1px solid black;
-    grid-column: 1 / 3;
-    grid-row: 2/3;
+    border-radius: 5px;
 }
 .pokemon-evo-chain {
-    margin: 10px;
-    padding: 50px;
-    border: 1px solid black;
-    grid-column: 1/ 3;
-    grid-row: 3/4;
+    height: 200px;
 }
