@@ -1,5 +1,4 @@
 import React from "react";
-import PokemonAvatar from "./PokemonAvatar";
 
 import "./PokemonInfoView.css";
 
