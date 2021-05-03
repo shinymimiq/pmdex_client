@@ -1,4 +1,5 @@
 import React from "react";
+import { PokemonTypes } from "./types/PokemonTypes";
 
 import "./PokemonInfoView.css";
 
@@ -32,9 +33,7 @@ export const PokemonInfoBasic = ({ pm }) => {
           <td>Type:</td>
           {/* TODO: better to handle types by a component  */}
           <td>
-            {pm.types.map((type) => {
-              return type.type.name + "/";
-            })}
+            <PokemonTypes pm={pm} />
           </td>
         </tr>
         <tr>
@@ -75,7 +74,7 @@ export const PokemonBaseStats = ({ pm }) => {
         <tr>
           <td>HP:</td>
           <td>{stats.hp}</td>
-          <td className='pm-stat-bar'>
+          <td className="pm-stat-bar">
             <div
               className="HP_pm"
               style={{ width: `${(stats["hp"] * 100) / 150}%` }}
@@ -85,7 +84,7 @@ export const PokemonBaseStats = ({ pm }) => {
         <tr>
           <td>ATK:</td>
           <td>{stats.attack}</td>
-          <td className='pm-stat-bar'>
+          <td className="pm-stat-bar">
             <div
               className="ATK_pm"
               style={{ width: `${(stats["attack"] * 100) / 150}%` }}
@@ -95,7 +94,7 @@ export const PokemonBaseStats = ({ pm }) => {
         <tr>
           <td>DEF:</td>
           <td>{stats.defense}</td>
-          <td className='pm-stat-bar'>
+          <td className="pm-stat-bar">
             <div
               className="DEF_pm"
               style={{ width: `${(stats["defense"] * 100) / 150}%` }}
@@ -105,7 +104,7 @@ export const PokemonBaseStats = ({ pm }) => {
         <tr>
           <td>SpA:</td>
           <td>{stats["special-attack"]}</td>
-          <td className='pm-stat-bar'>
+          <td className="pm-stat-bar">
             <div
               className="SPA_pm"
               style={{ width: `${(stats["special-attack"] * 100) / 150}%` }}
@@ -115,7 +114,7 @@ export const PokemonBaseStats = ({ pm }) => {
         <tr>
           <td>SpD:</td>
           <td>{stats["special-defense"]}</td>
-          <td className='pm-stat-bar'>
+          <td className="pm-stat-bar">
             <div
               className="SPD_pm"
               style={{ width: `${(stats["special-defense"] * 100) / 150}%` }}
@@ -125,7 +124,7 @@ export const PokemonBaseStats = ({ pm }) => {
         <tr>
           <td>SPE:</td>
           <td>{stats.speed}</td>
-          <td className='pm-stat-bar'>
+          <td className="pm-stat-bar">
             <div
               className="SPE_pm"
               style={{ width: `${(stats["speed"] * 100) / 150}%` }}

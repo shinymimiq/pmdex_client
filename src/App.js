@@ -13,13 +13,13 @@ import NotFoundPage from "./Pages/404Page";
 import PokemonAvatar from "./Components/PokemonView/PokemonAvatar";
 import { PokemonPage } from "./Pages/PokemonPage";
 
-import {ScrollToTopOnMount} from "./utils/ScrollToTop";
+import { ScrollToTopOnMount } from "./utils/ScrollToTop";
 
 const nationalPMDexCount = 898;
 
 function promiseGenfetchPokemon(offset = 1, limit = nationalPMDexCount) {
   const pmPromises = [];
-  Array.from({ length: nationalPMDexCount }, (_, i) => i + offset).map((i) =>
+  Array.from({ length: limit }, (_, i) => i + offset).map((i) =>
     pmPromises.push(apiGen.getPokemonByName(i))
   );
   return Promise.all(pmPromises);
@@ -53,7 +53,7 @@ const App = () => {
 
   return (
     <Router>
-      <ScrollToTopOnMount/>
+      <ScrollToTopOnMount />
       <Header searchHandleOnChange={handleOnChange}></Header>
       <div className="App">
         <Switch>
@@ -65,11 +65,9 @@ const App = () => {
           </Route>
           <Route path="/pokemon/:pmID">
             {pms.length < nationalPMDexCount && <LoadingPage />}
-            {pms.length === nationalPMDexCount && (
-              <PokemonPage/>
-            )}
+            {pms.length === nationalPMDexCount && <PokemonPage />}
           </Route>
-          <Route path='/avatar' component={PokemonAvatar}/>
+          <Route path="/avatar" component={PokemonAvatar} />
           <Route component={NotFoundPage} />
         </Switch>
       </div>
