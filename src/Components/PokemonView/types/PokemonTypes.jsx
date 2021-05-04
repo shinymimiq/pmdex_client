@@ -3,12 +3,19 @@
 import { useState, useEffect } from "react";
 import apiGen from "../../../Api/apiGen.js";
 
+// A custom hook
+import { usePMData } from "../../../Hooks/usePMData";
+
 import { TYPE_COLOR } from "../../../Assets/PokemonTypeColour.js";
 
 // the pokemon type components to get type details,
 // and display type name with icon and color background?
 export const PokemonTypes = ({ pm }) => {
-  const [types, setTypes] = useState();
+  const getTypes = async () => {
+    return Promise.all(pm.types.map((t) => apiGen.getTypeByName(t.type.name)));
+  };
+
+  const types = usePMData(getTypes);
 
   const types_string = pm.types.map((type) => (
     <span
@@ -19,26 +26,6 @@ export const PokemonTypes = ({ pm }) => {
       {type.type.name}
     </span>
   ));
-
-  // TODO: Can I make this function reuseable via custome hooks?
-  //       It is been used accross different components
-  useEffect(() => {
-    const getTypes = async () => {
-      return Promise.all(
-        pm.types.map((t) => apiGen.getAbilityByName(t.types.name))
-      );
-    };
-
-    async function run() {
-      try {
-        let res = await getTypes();
-        setTypes(res);
-      } catch (e) {
-        console.error(e);
-      }
-    }
-    run();
-  }, [pm.types]);
 
   return <div className="pokemon-types">{types_string}</div>;
 };
