@@ -10,15 +10,17 @@ import { TYPE_COLOR } from "../../../Assets/PokemonTypeColour.js";
 export const PokemonTypes = ({ pm }) => {
   const [types, setTypes] = useState();
 
-  const types_string = pm.types.map((type) => (
-    <span
-      key={type.type.name}
-      className="pm-type-string"
-      style={{ backgroundColor: `${TYPE_COLOR[type.type.name]}` }}
-    >
-      {type.type.name}
-    </span>
-  ));
+  const types_string = types
+    ? types.map((type) => (
+        <span
+          key={type.type.name}
+          className="pm-type-string"
+          style={{ backgroundColor: `${TYPE_COLOR[type.type.name]}` }}
+        >
+          {type.type.name}
+        </span>
+      ))
+    : "";
 
   // TODO: Can I make this function reuseable via custome hooks?
   //       It is been used accross different components
@@ -44,6 +46,6 @@ export const PokemonTypes = ({ pm }) => {
 };
 
 // Component of display types details: such as strengths and weakness
-export const PokemonTypesView = ({ types }) => {
+export const PokemonTypesView = () => {
   return <div className="pokemon-type-view"></div>;
 };
