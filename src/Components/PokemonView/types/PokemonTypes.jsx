@@ -13,21 +13,21 @@ export const PokemonTypes = ({ pm }) => {
   const types_string = types
     ? types.map((type) => (
         <span
-          key={type.type.name}
+          key={type.name}
           className="pm-type-string"
-          style={{ backgroundColor: `${TYPE_COLOR[type.type.name]}` }}
+          style={{ backgroundColor: `${TYPE_COLOR[type.name]}` }}
         >
-          {type.type.name}
+          {type.name}
         </span>
       ))
     : "";
 
-  // TODO: Can I make this function reuseable via custome hooks?
-  //       It is been used accross different components
+  // TODO: Can I make this function reuseable via custom hooks?
+  //       It is been used across different components
   useEffect(() => {
     const getTypes = async () => {
       return Promise.all(
-        pm.types.map((t) => apiGen.getAbilityByName(t.types.name))
+        pm.types.map((t) => apiGen.getTypeByName(t.type.name))
       );
     };
 

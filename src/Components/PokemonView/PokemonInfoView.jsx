@@ -6,7 +6,7 @@ import "./PokemonInfoView.css";
 const PokemonInfoView = ({ pm }) => {
   return (
     <div className="pokemon-info-container">
-      <PokemonInfoBasic />
+      <PokemonInfoBasic pm={pm} />
       <PokemonBaseStats />
       <PokemonTrainBreed />
     </div>
