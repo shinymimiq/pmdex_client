@@ -5,6 +5,8 @@ import apiGen from "../../../Api/apiGen.js";
 
 import { TYPE_COLOR } from "../../../Assets/PokemonTypeColour.js";
 
+import "./PokemonTypes.css";
+
 // the pokemon type components to get type details,
 // and display type name with icon and color background?
 export const PokemonTypes = ({ pm }) => {

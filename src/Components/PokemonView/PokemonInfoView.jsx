@@ -1,5 +1,6 @@
 import React from "react";
 import { PokemonTypes } from "./types/PokemonTypes";
+import { PokemonAbilities } from "./abilities/PokemonAbilities";
 
 import "./PokemonInfoView.css";
 
@@ -40,9 +41,7 @@ export const PokemonInfoBasic = ({ pm }) => {
           <td>Abilities:</td>
           {/* TODO: better to handle abilities by a component  */}
           <td>
-            {pm.abilities.map((ab) => {
-              return ab.ability.name + "/";
-            })}
+            <PokemonAbilities ab={pm.abilities} />
           </td>
         </tr>
       </table>

@@ -1,0 +1,8 @@
+.pokemon-types{
+    display:flex;
+    justify-content: center;
+}
+
+.pm-type-string {
+    margin: 5px;
+}
