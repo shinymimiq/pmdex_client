@@ -16,16 +16,12 @@ const Search = ({ searchPMByName, clearSearch }) => {
         placeholder="Search for pokemon"
         onChange={(e) => searchPMByName(e.target.value)}
       />
-      {/* TODO: Clear the search field */}
-      <span className="clear-search" onClick={() => clearSearch()}>
-        &#215;
-      </span>
     </div>
   );
 };
 
 // Currently search is performed on the pmOverview data
-// TODO: Replace it with a dedicated search view.
+// TODO: Consider Replace it with a dedicated search view.
 const mapDispatchToProps = (dispatch) => ({
   searchPMByName: (name) => dispatch(searchPMByName(name)),
   clearSearch: () => dispatch(clearSearch()),

@@ -10,7 +10,11 @@ const PokemonOverview = ({ pms }) => {
   return (
     <div className="pokemon-overview">
       {pms.map((pm) => (
-        <Link className="pokemon-preview" to={`/pokemon/${pm.id}`}>
+        <Link
+          key={`${pm.id}`}
+          className="pokemon-thumbnail"
+          to={`/pokemon/${pm.id}`}
+        >
           <img src={pm.imageUrl} alt="pokemon"></img>
           <p>
             <em className="iconfont">&#xe625;</em>

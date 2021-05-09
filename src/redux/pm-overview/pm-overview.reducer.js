@@ -8,7 +8,7 @@ const pmOverviewReducer = (state = INIT_STATE, action) => {
     case pmOverviewActionTypes.SEARCH_PM_BY_NAME:
       return {
         ...state,
-        data: state.data.filter((pm) =>
+        data: INIT_STATE.data.filter((pm) =>
           pm.name.toLowerCase().includes(action.payload.toLowerCase())
         ),
       };

@@ -7,7 +7,7 @@
   padding: 1% 3%;
 }
 
-.pokemon-preview {
+.pokemon-thumbnail {
   flex-basis:auto;
   margin: 1%;
   transition:transform 0.15s ;
@@ -18,7 +18,7 @@
   border: 5px solid slategrey;
 }
 
-.pokemon-preview:hover {
+.pokemon-thumbnail:hover {
   transform: scale(1.08);
   color:tomato;
 }
