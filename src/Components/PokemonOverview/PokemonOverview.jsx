@@ -1,21 +1,22 @@
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-import "../Assets/iconfont.css";
-import "./PokemonList.css";
+import "../../Assets/iconfont.css";
+import "./PokemonOverview.css";
 
 // Generate the Pokemon List view
 
-const PokemonList = ({ pms }) => {
+const PokemonOverview = ({ pms }) => {
   return (
     <div className="pokemon_list">
       {pms.map((pm) => (
-        <PokemonPreview key={`pm${pm.id}`} pm={pm} />
+        <PokemonThumbnail key={`pm${pm.id}`} pm={pm} />
       ))}
     </div>
   );
 };
 
-const PokemonPreview = ({ pm }) => {
+const PokemonThumbnail = ({ pm }) => {
   return (
     <Link className="pokemon_preview" to={`/pokemon/${pm.id}`}>
       <img src={pm.imageUrl} alt="pokemon"></img>
@@ -28,4 +29,8 @@ const PokemonPreview = ({ pm }) => {
   );
 };
 
-export default PokemonList;
+const mapStateToProps = ({ pmOverview }) => ({
+  pms: pmOverview.data,
+});
+
+export default connect(mapStateToProps)(PokemonOverview);

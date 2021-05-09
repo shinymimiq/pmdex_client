@@ -10,19 +10,24 @@ import "./PokemonTypes.css";
 // the pokemon type components to get type details,
 // and display type name with icon and color background?
 export const PokemonTypes = ({ pm }) => {
-  const [types, setTypes] = useState();
+  const [types_detail, setTypes] = useState();
 
-  const types_string = types
-    ? types.map((type) => (
-        <span
-          key={type.name}
-          className="pm-type-string"
-          style={{ backgroundColor: `${TYPE_COLOR[type.name]}` }}
-        >
-          {type.name}
-        </span>
-      ))
-    : "";
+  // We know the types from pm object so we display it first
+  // also we fetch the details in the background
+  const types_string = pm.types.map((type) => (
+    <span
+      key={type.type.name}
+      className="pm-type-string"
+      style={{ backgroundColor: `${TYPE_COLOR[type.type.name]}` }}
+    >
+      {type.type.name}
+      {types_detail ? (
+        <PokemonTypesView
+          type={types_detail.find((t) => t.name === type.type.name)}
+        />
+      ) : null}
+    </span>
+  ));
 
   // TODO: Can I make this function reuseable via custom hooks?
   //       It is been used across different components
@@ -49,5 +54,11 @@ export const PokemonTypes = ({ pm }) => {
 
 // Component of display types details: such as strengths and weakness
 export const PokemonTypesView = () => {
-  return <div className="pokemon-type-view"></div>;
+  return (
+    <div className="pokemon-type-view">
+      This should be a hover view
+      <div className="type-strengths">x2 ...</div>
+      <div className="type-weakness">x0.5 ...</div>
+    </div>
+  );
 };

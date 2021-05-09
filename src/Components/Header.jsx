@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { ReactComponent as Logo } from "../Assets/pokeball-pokemon-svgrepo-com.svg";
+import Search from "./Search/Search.component";
 
 import "./Header.css";
 
-export const Header = ({searchHandleOnChange}) => {
+export const Header = ({ searchHandleOnChange }) => {
   return (
     <div className="header" id="header">
       <Link className="logo-container" to="/">
@@ -25,24 +26,10 @@ export const Header = ({searchHandleOnChange}) => {
           Items
         </Link>
       </div>
-      <Search handleOnChange={searchHandleOnChange}/>
+      <Search />
     </div>
   );
 };
-
-
-const Search = ({ handleOnChange }) => {
-  return (
-    <div className='search'>
-      <input
-        className="search-bar"
-        type="text"
-        placeholder="Search for pokemon"
-        onChange={handleOnChange}
-      />
-    </div>
-  )
-}
 
 export const SideNav = () => {
   return (
@@ -59,4 +46,3 @@ export const SideNav = () => {
     </div>
   );
 };
-

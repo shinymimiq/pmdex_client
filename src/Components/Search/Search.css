@@ -10,3 +10,7 @@
   background: lightgreen;
   border: 1px solid red;
 }
+
+.clear-search {
+  cursor: pointer;
+}
