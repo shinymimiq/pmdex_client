@@ -8,24 +8,18 @@ import "./PokemonOverview.css";
 
 const PokemonOverview = ({ pms }) => {
   return (
-    <div className="pokemon_list">
+    <div className="pokemon-overview">
       {pms.map((pm) => (
-        <PokemonThumbnail key={`pm${pm.id}`} pm={pm} />
+        <Link className="pokemon-preview" to={`/pokemon/${pm.id}`}>
+          <img src={pm.imageUrl} alt="pokemon"></img>
+          <p>
+            <em className="iconfont">&#xe625;</em>
+            {pm.id}
+          </p>
+          <p className="capitalize">{pm.name}</p>
+        </Link>
       ))}
     </div>
-  );
-};
-
-const PokemonThumbnail = ({ pm }) => {
-  return (
-    <Link className="pokemon_preview" to={`/pokemon/${pm.id}`}>
-      <img src={pm.imageUrl} alt="pokemon"></img>
-      <p>
-        <em className="iconfont">&#xe625;</em>
-        {pm.id}
-      </p>
-      <p className="capitalize">{pm.name}</p>
-    </Link>
   );
 };
 
