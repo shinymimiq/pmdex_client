@@ -5,13 +5,14 @@ import {
   clearSearch,
 } from "../../redux/pm-overview/pm-overview.actions";
 
-import "./Search.css";
+// import "./Search.css";
 
 const Search = ({ searchPMByName, clearSearch }) => {
   return (
-    <div className="search">
+    <div className="flex-shrink mr-2">
       <input
-        className="search-bar"
+        className="rounded h-8 focus:outline-none focus:ring
+         focus:border-blue-300 focus:bg-green-200 focus:"
         type="text"
         placeholder="Search for pokemon"
         onChange={(e) => searchPMByName(e.target.value)}

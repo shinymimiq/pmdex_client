@@ -1,130 +1,17 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-/* 我就随便加点字看看这clone啥情况 */
-body,
-html {
-  width: 100%;
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body, html {
   height: 100%;
-  background: rgb(224, 224, 224);
-  overflow-x: hidden;
-  font-family: 'Lato', sans-serif;
-}
-a {
-  text-decoration: none;
-  color: black;
+  overflow:hidden;
 }
 
-/* header */
-.header a {
-  text-decoration: none;
-  text-align: center;
+#root {
+  height:100%;
 }
 
-.side-navi {
-  width: 4%;
-  position: fixed ;
-  right: 0;
-  top: 20%;
-}
-.side-navi a {
-  color: black;
-  display: block;
-  font-size: 20px;
-  border: 1px solid black;
-  box-shadow: ;
-  background: #E5E5E5;
-  margin-bottom: 5px;
-}
-
-/* pokeball */
-.pokeball {
-  width: 200px;
-  height: 200px;
-  margin: 50px auto;
-  position: relative;
-  top: 0;
-}
-.pokeball div {
-  height: 100px;
-  width: 200px;
-}
-.upside {
-  background: red;
-  border-radius: 50px 50px 0 0;
-  border-bottom: 5px solid black;
-}
-.downside {
-  background: white;
-  border-radius: 0 0 50px 50px;
-  border-top: 5px solid black;
-}
-
-.pokeball span {
-  display: flex;
-  width: 50px;
-  height: 50px;
-  background: white;
-  border: 10px solid black;
-  box-sizing: border-box;
-  position: absolute;
-  left: calc(50% - 25px);
-  top: calc(50% - 20px);
-}
-
-p.capitalize {
-  text-transform: capitalize;
-}
-
-
-/* overlay styles, all needed */
-.overlay {
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(100,0,25,1);
-}
-
-.moves {
-  width: 100%;
-}
-.moves p {
-  font-size: 15px;
-  border: 1px dashed gray;
-}
-
-
-@media screen and (max-width:1024px){
-  .pokemon_preview {
-    width: 20%;
-    font-size: 20px;
-  }
-  .search-bar {
-    font-size: 25px;
-  }
-}
-@media screen and (max-width:768px){
-  .pokemon_preview {
-    width: 28%;
-  }
-  
-  .search-bar {
-    width: 320px;
-    height: 30px;
-    font-size: 25px;
-  }
-}
-@media screen and (max-width:640px){
-  .pokemon_preview {
-    width: 45%;
-  }
-  .logo-container{
-    display: none !important;
-  }
-  .search-bar {
-    width: 100px !important;
-    font-size: 20px;
-  }
+.container {
+  max-width: 100%;
 }

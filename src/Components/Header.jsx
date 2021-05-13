@@ -7,29 +7,34 @@ import Search from "./Search/Search.component";
 import "./Header.css";
 
 export const Header = ({ searchHandleOnChange }) => {
+  // const naviLinkCss =
+  // "mx-3 text-purple-100 hover:bg-white hover:text-purple-500 h-full inline-block";
+
   return (
-    <div className="header" id="header">
-      <Link className="logo-container" to="/">
-        <Logo className="logo" />
-      </Link>
-      <div className="top_navi_container">
-        <Link className="navi-item" to="/">
-          Home
-        </Link>
-        <Link className="navi-item" to="/pokemon">
-          List
-        </Link>
-        <Link className="navi-item" to="/moves">
-          Moves
-        </Link>
-        <Link className="navi-item" to="/items">
-          Items
-        </Link>
+    <div className="w-full bg-white h-20">
+      <div className="mx-auto h-full px-8 bg-white" id="header">
+        <div className="h-full flex items-center bg-coolDarkGray rounded">
+          <Link className="w-8 ml-6 mr-2" to="/">
+            <Logo className="logo" />
+          </Link>
+          <div className="flex-grow h-full flex items-stretch">
+            <NaviItem path="/" text="Home" />
+            <NaviItem path="/pokemon" text="Pokemons" />
+            <NaviItem path="/moves" text="Moves" />
+            <NaviItem path="/items" text="Items" />
+          </div>
+          <Search />
+        </div>
       </div>
-      <Search />
     </div>
   );
 };
+
+const NaviItem = ({ path, text }) => (
+  <div className="flex items-center px-1 mx-3 text-purple-100 hover:bg-white hover:text-purple-500">
+    <Link to={path}>{text}</Link>
+  </div>
+);
 
 export const SideNav = () => {
   return (

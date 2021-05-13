@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 
 import PokemonOverview from "./Components/PokemonOverview/PokemonOverview";
 
@@ -15,18 +15,20 @@ const App = () => {
   return (
     <Router>
       <ScrollToTopOnMount />
-      <Header></Header>
-      <div className="App">
-        <Switch>
-          <Route exact path="/(|pokemon)">
-            <PokemonOverview />
-          </Route>
-          <Route path="/pokemon/:pmID">
-            <PokemonPage />
-          </Route>
-          <Route path="/avatar" component={PokemonAvatar} />
-          <Route component={NotFoundPage} />
-        </Switch>
+      <div className="flex flex-col h-full">
+        <Header></Header>
+        <div className="h-full overflow-y-auto">
+          <Switch>
+            <Route exact path="/(|pokemon)">
+              <PokemonOverview />
+            </Route>
+            <Route path="/pokemon/:pmID">
+              <PokemonPage />
+            </Route>
+            <Route path="/avatar" component={PokemonAvatar} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </div>
       </div>
     </Router>
   );
