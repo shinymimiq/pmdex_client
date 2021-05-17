@@ -12,8 +12,8 @@ export const Header = ({ searchHandleOnChange }) => {
 
   return (
     <div className="w-full bg-white h-20">
-      <div className="mx-auto h-full px-8 bg-white" id="header">
-        <div className="h-full flex items-center bg-coolDarkGray rounded">
+      <div className="mx-auto h-full bg-white" id="header">
+        <div className="h-full flex items-center bg-coolDarkGray">
           <Link className="w-8 ml-6 mr-2" to="/">
             <Logo className="logo" />
           </Link>

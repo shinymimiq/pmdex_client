@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import apiGen from "../../../Api/apiGen.js";
 
-import { TYPE_COLOR } from "../../../Assets/PokemonTypeColour.js";
+import { TYPE_COLOR } from "../../../Assets/PokemonTypes/PokemonTypeColour";
 
 import "./PokemonTypes.css";
 

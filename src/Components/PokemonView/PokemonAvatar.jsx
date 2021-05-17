@@ -1,15 +1,9 @@
 import React from "react";
-import { TYPE_COLOR } from "../../Assets/PokemonTypeColour";
+import { TYPE_COLOR } from "../../Assets/PokemonTypes/PokemonTypeColour";
 
 import "./PokemonAvatar.css";
 
 const PokemonAvatar = ({ pm }) => {
-  // const pm = {
-  // types: [
-  // {type: 'ghost'},
-  // {type: 'fairy'}
-  // ]
-  // }
   const pmTypes = [];
   pm.types.map((type) => pmTypes.push(type.type.name));
 
@@ -17,18 +11,18 @@ const PokemonAvatar = ({ pm }) => {
     <div className="pm-avatar">
       <PokemonAvatarBackground types={pmTypes} />
       <div className="pm-sprite-container">
-          <img
-            className="pm-sprite"
-            src={pm.sprites.front_default}
-            // TODO: use some service worker to cache these high-def image
-            // before we enable it.
-            // src={pm.sprites.other['official-artwork'].front_default}
-            alt={pm.species.name}
-          />
-          <p className="pm-id-name">
-            #{pm.id} {pm.species.name.toUpperCase()}
-          </p>
-        </div>
+        <img
+          className="pm-sprite"
+          src={pm.sprites.front_default}
+          // TODO: use some service worker to cache these high-def image
+          // before we enable it.
+          // src={pm.sprites.other['official-artwork'].front_default}
+          alt={pm.species.name}
+        />
+        <p className="pm-id-name">
+          #{pm.id} {pm.species.name.toUpperCase()}
+        </p>
+      </div>
     </div>
   );
 };

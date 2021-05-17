@@ -17,7 +17,7 @@ const App = () => {
       <ScrollToTopOnMount />
       <div className="flex flex-col h-full">
         <Header></Header>
-        <div className="h-full overflow-y-auto">
+        <div className="h-full overflow-y-auto w-full mx-auto">
           <Switch>
             <Route exact path="/(|pokemon)">
               <PokemonOverview />
