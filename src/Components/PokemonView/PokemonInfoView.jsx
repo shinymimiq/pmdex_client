@@ -1,6 +1,7 @@
 import React from "react";
 import { PokemonTypes } from "./types/PokemonTypes";
 import { PokemonAbilities } from "./abilities/PokemonAbilities";
+import { PokemonBaseStats } from "./PokemonStats";
 
 import "./PokemonInfoView.css";
 
@@ -53,88 +54,6 @@ export const PokemonInfoBasic = ({ pm }) => {
         It wears a rag fashioned into a Pikachu costume in an effort to look
         less scary. Unfortunately, the costume only makes it creepier.
       </p>
-    </div>
-  );
-};
-
-export const PokemonBaseStats = ({ pm }) => {
-  // extract stats locally
-  const stats = {};
-  let sum = 0;
-  pm.stats.map((stat) => {
-    stats[stat.stat.name] = stat.base_stat;
-    sum += stat.base_stat;
-    return stats;
-  });
-
-  return (
-    <div className="pokemon-base-stats">
-      <table>
-        <tr>
-          <td>HP:</td>
-          <td>{stats.hp}</td>
-          <td className="pm-stat-bar">
-            <div
-              className="HP_pm"
-              style={{ width: `${(stats["hp"] * 100) / 150}%` }}
-            ></div>
-          </td>
-        </tr>
-        <tr>
-          <td>ATK:</td>
-          <td>{stats.attack}</td>
-          <td className="pm-stat-bar">
-            <div
-              className="ATK_pm"
-              style={{ width: `${(stats["attack"] * 100) / 150}%` }}
-            ></div>
-          </td>
-        </tr>
-        <tr>
-          <td>DEF:</td>
-          <td>{stats.defense}</td>
-          <td className="pm-stat-bar">
-            <div
-              className="DEF_pm"
-              style={{ width: `${(stats["defense"] * 100) / 150}%` }}
-            ></div>
-          </td>
-        </tr>
-        <tr>
-          <td>SpA:</td>
-          <td>{stats["special-attack"]}</td>
-          <td className="pm-stat-bar">
-            <div
-              className="SPA_pm"
-              style={{ width: `${(stats["special-attack"] * 100) / 150}%` }}
-            ></div>
-          </td>
-        </tr>
-        <tr>
-          <td>SpD:</td>
-          <td>{stats["special-defense"]}</td>
-          <td className="pm-stat-bar">
-            <div
-              className="SPD_pm"
-              style={{ width: `${(stats["special-defense"] * 100) / 150}%` }}
-            ></div>
-          </td>
-        </tr>
-        <tr>
-          <td>SPE:</td>
-          <td>{stats.speed}</td>
-          <td className="pm-stat-bar">
-            <div
-              className="SPE_pm"
-              style={{ width: `${(stats["speed"] * 100) / 150}%` }}
-            ></div>
-          </td>
-        </tr>
-        <tr>
-          <td>TOTAL:</td>
-          <td>{sum}</td>
-        </tr>
-      </table>
     </div>
   );
 };
