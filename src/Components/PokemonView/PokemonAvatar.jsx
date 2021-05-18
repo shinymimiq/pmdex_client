@@ -1,16 +1,14 @@
 import React from "react";
 import { TYPE_COLOR } from "../../Assets/PokemonTypes/PokemonTypeColour";
 
-import "./PokemonAvatar.css";
-
 const PokemonAvatar = ({ pm }) => {
   const pmTypes = [];
   pm.types.map((type) => pmTypes.push(type.type.name));
 
   return (
-    <div className="pm-avatar">
+    <div className="pm-avatar w-full h-1/6">
       <PokemonAvatarBackground types={pmTypes} />
-      <div className="pm-sprite-container">
+      <div className="pm-sprite-container relative flex-col z-10">
         <img
           className="pm-sprite"
           src={pm.sprites.front_default}
@@ -19,9 +17,9 @@ const PokemonAvatar = ({ pm }) => {
           // src={pm.sprites.other['official-artwork'].front_default}
           alt={pm.species.name}
         />
-        <p className="pm-id-name">
-          #{pm.id} {pm.species.name.toUpperCase()}
-        </p>
+        <span className="pm-id-name uppercase">
+          #{pm.id} {pm.species.name}
+        </span>
       </div>
     </div>
   );
@@ -29,13 +27,13 @@ const PokemonAvatar = ({ pm }) => {
 
 const PokemonAvatarBackground = ({ types }) => {
   return (
-    <div className="pm-avatar-background">
+    <div className="pm-avatar-background h-40 w-40 absolute flex z-0">
       <div
-        className="pm-avatar-left"
+        className="pm-avatar-left w-1/2 rounded-tl-full"
         style={{ backgroundColor: `${TYPE_COLOR[types[0]]}` }}
       />
       <div
-        className="pm-avatar-right"
+        className="pm-avatar-right w-1/2 rounded-br-full"
         style={{
           backgroundColor:
             types.length === 2

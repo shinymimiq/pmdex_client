@@ -55,10 +55,11 @@ export const PokemonTypes = ({ pm }) => {
 // Component of display types details: such as strengths and weakness
 export const PokemonTypesView = () => {
   return (
-    <div className="pokemon-type-view">
-      This should be a hover view
-      <div className="type-strengths">x2 ...</div>
-      <div className="type-weakness">x0.5 ...</div>
-    </div>
+    <div></div>
+    // <div className="pokemon-type-view">
+      // This should be a hover view
+      // <div className="type-strengths">x2 ...</div>
+      // <div className="type-weakness">x0.5 ...</div>
+    // </div>
   );
 };

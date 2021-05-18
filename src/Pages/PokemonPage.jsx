@@ -5,14 +5,10 @@ import { useParams } from "react-router-dom";
 
 import apiGen from "../Api/apiGen";
 import PokemonAvatar from "../Components/PokemonView/PokemonAvatar";
-import {
-  PokemonInfoBasic,
-  PokemonTrainBreed,
-} from "../Components/PokemonView/PokemonInfoView";
+import { PokemonInfoBasic } from "../Components/PokemonView/PokemonInfoView";
 import { PokemonBaseStats } from "../Components/PokemonView/PokemonStats";
 import LoadingPage from "./Loading";
-
-// import "./PokemonPage.css";
+import MovesView from "../Components/MovesView";
 
 export const PokemonPage = () => {
   const { pmID } = useParams();
@@ -32,20 +28,23 @@ export const PokemonPage = () => {
   }, [pmID]); // <-- Have to pass in [] here
 
   return (
-    <div className="pokemon-page w-full h-screen">
-      <div className="pm-details w-full overflow-hidden">
-        <PokemonAvatar pm={pokemon} />
-        <PokemonInfoBasic pm={pokemon} />
-        {/* <PokemonInfoView pm={pokemon} /> */}
-      </div>
-      <div className="pm-details2 w-full border">
-        <div className="info-left w-full">
-          <PokemonBaseStats pm={pokemon} />
-          <PokemonTrainBreed pm={pokemon} />
-          <div className="pokemon-evo-chain">EVO CHAIN</div>
+    <div className="w-full h-full">
+      {pokemon ? (
+        <div className="pokemon-page w-full h-screen flex-col flex-1">
+          <PokemonAvatar pm={pokemon} />
+          <PokemonInfoBasic pm={pokemon} />
+          {/* <PokemonInfoView pm={pokemon} /> */}
+          <div className="info-left w-full">
+            <PokemonBaseStats pm={pokemon} />
+            <div className="pokemon-evo-chain border m-5">EVO CHAIN</div>
+          </div>
+          <div className="pokemon-move-list h-1/3 overflow-y-scroll border m-5">
+            <MovesView moves={pokemon.moves} />
+          </div>
         </div>
-        <div className="pokemon-move-list">MOVE LIST</div>
-      </div>
+      ) : (
+        <LoadingPage />
+      )}
     </div>
   );
 };

@@ -15,7 +15,7 @@ const App = () => {
   return (
     <Router>
       <ScrollToTopOnMount />
-      <div className="flex flex-col h-full">
+      <div className="flex-1 flex-col h-full">
         <Header></Header>
         <div className="h-full overflow-y-auto w-full mx-auto">
           <Switch>

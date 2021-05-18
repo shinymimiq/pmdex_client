@@ -10,7 +10,7 @@ const PokemonOverview = ({ pms }) => {
   return (
     <div className="pokemon-overview flex flex-wrap justify-center">
       {pms.map((pm) => (
-        <PokemonOverviewItem pm={pm} />
+        <PokemonOverviewItem key={`${pm.id}`} pm={pm} />
       ))}
     </div>
   );
@@ -24,7 +24,6 @@ const PokemonOverviewItem = ({ pm }) => {
       flex-col h-full hover:bg-gray-200"
     >
       <Link
-        key={`${pm.id}`}
         className="pokemon-thumbnail h-full w-full overflow-visible"
         to={`/pokemon/${pm.id}`}
       >

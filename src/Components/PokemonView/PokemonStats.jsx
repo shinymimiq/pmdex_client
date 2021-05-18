@@ -13,7 +13,7 @@ export const PokemonBaseStats = ({ pm }) => {
   const stat_bar_inner_styles = "  bg-blue-300 h-full rounded";
 
   return (
-    <div className="pokemon-base-stats-container flex-col border">
+    <div className="pokemon-base-stats-container flex-col border m-5">
       <div className={stat_line_styles}>
         <div className="text">
           <span>HP:</span>
