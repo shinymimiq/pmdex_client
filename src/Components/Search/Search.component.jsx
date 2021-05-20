@@ -1,4 +1,7 @@
 import { connect } from "react-redux";
+import { useState } from "react";
+
+import SearchResults from "./SearchResults.component";
 
 import {
   searchPMByName,
@@ -7,7 +10,9 @@ import {
 
 // import "./Search.css";
 
-const Search = ({ searchPMByName, clearSearch }) => {
+const Search = ({ searchPMByName }) => {
+  const [isSearch, setIsSearch] = useState(false);
+
   return (
     <div className="flex-shrink mr-2">
       <input
@@ -15,8 +20,24 @@ const Search = ({ searchPMByName, clearSearch }) => {
          focus:border-blue-300 focus:bg-green-200 focus:"
         type="text"
         placeholder="Search for pokemon"
-        onChange={(e) => searchPMByName(e.target.value)}
+        onChange={(e) => {
+          // We don't want to display a long list when user
+          // only type a single character
+          if (e.target.value.length >= 2) {
+            searchPMByName(e.target.value);
+            setIsSearch(true);
+          } else {
+            setIsSearch(false);
+          }
+        }}
+        onBlur={(e) => {
+          setIsSearch(false);
+          e.target.value = "";
+          // Maybe we want to clear search results?
+          // clearSearch();
+        }}
       />
+      <SearchResults isSearch={isSearch} />
     </div>
   );
 };
