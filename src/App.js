@@ -8,6 +8,7 @@ import { Header } from "./Components/Header";
 import NotFoundPage from "./Pages/404Page";
 import { PokemonPage } from "./Pages/PokemonPage";
 import { MovesPage } from "./Pages/MovesPage";
+import { ItemsPage } from "./Pages/ItemsPage";
 
 import { ScrollToTopOnMount } from "./utils/ScrollToTop";
 
@@ -27,6 +28,9 @@ const App = () => {
             </Route>
             <Route path="/moves">
               <MovesPage />
+            </Route>
+            <Route path="/items">
+              <ItemsPage />
             </Route>
             <Route component={NotFoundPage} />
           </Switch>
