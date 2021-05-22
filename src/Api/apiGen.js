@@ -109,6 +109,10 @@ class apiGenerator {
     return apiRequest(`/type/${id}`);
   }
 
+  getMoveByName(id) {
+    return apiRequest(`/move/${id}`);
+  }
+
   stripRawUrl(url) {
     return url.replace("https://pokeapi.co/api/v2/", "");
   }

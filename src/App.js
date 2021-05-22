@@ -6,8 +6,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Header } from "./Components/Header";
 
 import NotFoundPage from "./Pages/404Page";
-import PokemonAvatar from "./Components/PokemonView/PokemonAvatar";
 import { PokemonPage } from "./Pages/PokemonPage";
+import { MovesPage } from "./Pages/MovesPage";
 
 import { ScrollToTopOnMount } from "./utils/ScrollToTop";
 
@@ -25,7 +25,9 @@ const App = () => {
             <Route path="/pokemon/:pmID">
               <PokemonPage />
             </Route>
-            <Route path="/avatar" component={PokemonAvatar} />
+            <Route path="/moves">
+              <MovesPage />
+            </Route>
             <Route component={NotFoundPage} />
           </Switch>
         </div>
