@@ -1,37 +1,34 @@
 import { React } from "react";
 import { useState, useEffect } from "react";
 
-import apiGen from "../Api/apiGen";
 import MovesListAllView from "../Components/MovelistView/MovesListAllView.component";
 import WithSpinner from "../Components/WithSpinner.component";
 
-const MovesListAllViewWithSpinner = WithSpinner(MovesListAllView);
-const MOVE_COUNT = 826;
+import { P } from "../Api/apiGen";
 
-const promiseGenFetchMoves = (offset = 1, limit = MOVE_COUNT) => {
-  const mvPromise = [];
-  Array.from({ length: limit }, (_, i) => i + offset).map((i) =>
-    mvPromise.push(apiGen.getMoveByName(i))
-  );
-  return Promise.all(mvPromise);
-};
+const MovesListAllViewWithSpinner = WithSpinner(MovesListAllView);
 
 export const MovesPage = () => {
   const [moves, setMoves] = useState();
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function run() {
-      let res = [];
-      try {
-        res = await promiseGenFetchMoves();
-      } catch (e) {
-        console.log(e);
-      }
-      setMoves(res);
-      setLoading(false);
-    }
-    run();
+    // Get Moves List will return an object{name:xx url:xx} lists
+    P.getMovesList()
+      .then((res) => {
+        // We can put the request to object{url: xxx} into a promise array
+        return Promise.all(
+          res.results.reduce((accum, item) => {
+            return [...accum, P.resource(item.url)];
+          }, [])
+        );
+      })
+      // resolve the promise array generated above
+      .then((res) => {
+        setMoves(res);
+        setLoading(false);
+      })
+      .catch((e) => console.log(e));
   }, []);
 
   return (

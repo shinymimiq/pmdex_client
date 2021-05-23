@@ -1,6 +1,9 @@
 import Axios from "axios";
 import localforage from "localforage";
 
+const Pokedex = require("pokeapi-js-wrapper");
+export const P = new Pokedex.Pokedex();
+
 // Reference URL: https://github.com/ShinteiMai/react-pokedex/blob/965b64f8e1ca0bcc8780a6d865cf672a8e408a54/src/api/axios.ts
 
 localforage.config({
@@ -115,6 +118,10 @@ class apiGenerator {
 
   getItemByName(id) {
     return apiRequest(`/item/${id}`);
+  }
+
+  getItemsList() {
+    return apiRequest(`/item`);
   }
 
   stripRawUrl(url) {

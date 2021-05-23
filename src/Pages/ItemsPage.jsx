@@ -1,40 +1,34 @@
 import { React } from "react";
 import { useState, useEffect } from "react";
 
-import apiGen from "../Api/apiGen";
 import WithSpinner from "../Components/WithSpinner.component";
-
 import ItemsListView from "../Components/ItemsView/ItemsListView.component";
 
-const ItemsListViewWithSpinner = WithSpinner(ItemsListView);
-const MOVE_COUNT = 826;
+import { P } from "../Api/apiGen";
 
-// TODO: Need to redesign how to fecth items
-// As the items id is not continous, i.e, there is no id 672
-const promiseGenFetchItems = (offset = 1, limit = MOVE_COUNT) => {
-  const itPromise = [];
-  Array.from({ length: limit }, (_, i) => i + offset).map((i) =>
-    itPromise.push(apiGen.getItemByName(i))
-  );
-  return Promise.all(itPromise);
-};
+const ItemsListViewWithSpinner = WithSpinner(ItemsListView);
 
 export const ItemsPage = () => {
   const [items, setItems] = useState();
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function run() {
-      let res = [];
-      try {
-        res = await promiseGenFetchItems();
-      } catch (e) {
-        console.log(e);
-      }
-      setItems(res);
-      setLoading(false);
-    }
-    run();
+    // Get Items List will return an object{name:xx url:xx} lists
+    P.getItemsList()
+      .then((res) => {
+        // We can put the request to object{url: xxx} into a promise array
+        return Promise.all(
+          res.results.reduce((accum, item) => {
+            return [...accum, P.resource(item.url)];
+          }, [])
+        );
+      })
+      // resolve the promise array generated above
+      .then((res) => {
+        setItems(res);
+        setLoading(false);
+      })
+      .catch((e) => console.log(e));
   }, []);
 
   return (
