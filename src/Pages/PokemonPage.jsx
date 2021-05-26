@@ -3,7 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import apiGen from "../Api/apiGen";
+import { P } from "../Api/apiGen";
 import PokemonAvatar from "../Components/PokemonView/PokemonAvatar";
 import { PokemonInfoBasic } from "../Components/PokemonView/PokemonInfoView";
 import { PokemonBaseStats } from "../Components/PokemonView/PokemonStats";
@@ -15,16 +15,11 @@ export const PokemonPage = () => {
   const [pokemon, setPokemon] = useState();
 
   useEffect(() => {
-    async function run() {
-      let response = [];
-      try {
-        response = await apiGen.getPokemonByName(pmID);
-      } catch (e) {
-        console.error(e);
-      }
-      setPokemon(response);
-    }
-    run();
+    P.getPokemonByName(pmID)
+      .then((res) => {
+        setPokemon(res);
+      })
+      .catch((e) => console.log(e));
   }, [pmID]); // <-- Have to pass in [] here
 
   return (

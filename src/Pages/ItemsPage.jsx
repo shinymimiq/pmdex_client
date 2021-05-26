@@ -9,6 +9,7 @@ import { P } from "../Api/apiGen";
 const ItemsListViewWithSpinner = WithSpinner(ItemsListView);
 
 export const ItemsPage = () => {
+  // TODO: use Redux to presist the state
   const [items, setItems] = useState();
   const [isLoading, setLoading] = useState(true);
 

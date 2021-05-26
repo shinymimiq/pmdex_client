@@ -1,11 +1,11 @@
 import { React } from "react";
 
-const ItemsListView = () => {
+const ItemsListView = ({ items }) => {
   return (
     <div className="items-view">
-      This is the Items View
-      <span>ASD</span>
-      <span>QWE</span>
+      {items.map((item) => {
+        return <div key={item.id}>{item.name}</div>;
+      })}
     </div>
   );
 };
