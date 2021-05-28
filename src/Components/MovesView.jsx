@@ -6,6 +6,9 @@
 // Name, type, damage class (physical special), power, PP, priority, description
 // + special effects, description in details.
 
+import { useEffect, useState } from "react";
+import { P } from "../Api/apiGen";
+
 const MovesView = (props) => {
   let moves = props.moves;
   // Each generation will have different move sets for a pokemon
@@ -44,22 +47,54 @@ const MovesView = (props) => {
   return (
     <div>
       <p>=====LEVEL UP======</p>
-      <MovesList moves={level_up_moves_list}></MovesList>
+      <MovesListByCatagory
+        moves_list={level_up_moves_list}
+      ></MovesListByCatagory>
       <p>=====EGG=====</p>
-      <MovesList moves={egg_moves_list}></MovesList>
+      <MovesListByCatagory moves_list={egg_moves_list}></MovesListByCatagory>
       <p>=====TM/TR=====</p>
-      <MovesList moves={machine_moves_list}></MovesList>
+      <MovesListByCatagory
+        moves_list={machine_moves_list}
+      ></MovesListByCatagory>
       <p>=====TUTOR=====</p>
-      <MovesList moves={tutor_moves_list}></MovesList>
+      <MovesListByCatagory moves_list={tutor_moves_list}></MovesListByCatagory>
     </div>
   );
 };
 
-const MovesList = (props) => {
-  const list = props.moves.map((move) => (
-    <p key={move.move.name}>{move.move.name}</p>
-  ));
-  return <div>{list}</div>;
+const MovesListByCatagory = ({ moves_list }) => {
+  const [moves, setMoves] = useState();
+
+  useEffect(() => {
+    Promise.all(
+      moves_list.reduce((accm, move) => {
+        return [...accm, P.resource(move.move.url)];
+      }, [])
+    )
+      .then((res) => {
+        setMoves(res);
+      })
+      .catch((e) => console.log(e));
+  }, [moves_list]);
+
+  return (
+    <div className="moves-list-catagorised">
+      {moves
+        ? moves.map((m) => (
+            <div key={m.id} className="flex justify-between">
+              <span>
+                {m.names.find((n) => n.language.name === "zh-Hans").name}
+              </span>
+              <span className="mx-2">Power: {m.power ? m.power : "-"}</span>
+              <span className="mx-2">PP: {m.pp}</span>
+              <span className="mx-2">
+                Accuracy: {m.accuracy ? m.accuracy : "-"}
+              </span>
+            </div>
+          ))
+        : "loading"}
+    </div>
+  );
 };
 
 export default MovesView;

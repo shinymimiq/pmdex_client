@@ -14,7 +14,7 @@ export const MovesPage = () => {
 
   useEffect(() => {
     // Get Moves List will return an object{name:xx url:xx} lists
-    P.getMovesList()
+    P.getMovesList({ offset: 34, limit: 20 })
       .then((res) => {
         // We can put the request to object{url: xxx} into a promise array
         return Promise.all(
