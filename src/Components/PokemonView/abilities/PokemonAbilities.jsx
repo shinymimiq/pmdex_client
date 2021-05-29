@@ -22,7 +22,7 @@ export const PokemonAbilities = ({ ab }) => {
 
   const abilities_string = abilities
     ? abilities.map((a) => (
-        <span key={a.name} className="pm-ability-string">
+        <span key={a.name} className="pm-ability-string p-1 mx-1">
           {a.names.find((n) => n.language.name === "zh-Hans").name}
           {ab.find((i) => i.ability.name === a.name).is_hidden ? "(H)" : ""}
         </span>

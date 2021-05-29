@@ -16,13 +16,14 @@ export const PokemonTypes = ({ types }) => {
   // also we fetch the details in the background
   const types_string = types_detail
     ? types_detail.map((type) => (
-        <span
+        <div
           key={type.name}
-          className="pm-type-string"
-          style={{ backgroundColor: `${TYPE_COLOR[type.name]}` }}
+          className={`pm-type-string hover-trigger p-1 rounded`}
+          style={{ backgroundColor: `${TYPE_COLOR[type.name]}A0` }}
         >
           {type.names.find((n) => n.language.name === "en").name}
-        </span>
+          <PokemonTypesView type={type} />
+        </div>
       ))
     : "";
 
@@ -45,11 +46,9 @@ export const PokemonTypes = ({ types }) => {
 // Component of display types details: such as strengths and weakness
 export const PokemonTypesView = () => {
   return (
-    <div></div>
-    // <div className="pokemon-type-view">
-    // This should be a hover view
-    // <div className="type-strengths">x2 ...</div>
-    // <div className="type-weakness">x0.5 ...</div>
-    // </div>
+    <div className="pokemon-type-view hover-target fixed w-20 h-20 bg-blue-200">
+      <div className="type-strengths">x2 ...</div>
+      <div className="type-weakness">x0.5 ...</div>
+    </div>
   );
 };

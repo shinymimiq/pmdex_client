@@ -25,12 +25,14 @@ export const PokemonInfoBasic = ({ pm }) => {
         <span>Height:</span>
         <span>{cWH(pm.height)}m</span>
       </div>
-      <div>
+      <div className="flex items-center">
         <span>Type:</span>
         <PokemonTypes types={pm.types} />
       </div>
-      <span>Abilities:</span>
-      <PokemonAbilities ab={pm.abilities} />
+      <div className="flex items-center">
+        <span>Abilities:</span>
+        <PokemonAbilities ab={pm.abilities} />
+      </div>
       <div className="breeding-info">
         <span>Egg Group: Amorphous</span>
         <br />

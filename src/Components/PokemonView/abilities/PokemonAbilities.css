@@ -2,8 +2,3 @@
     display: flex;
     justify-content: center;
 }
-
-.pm-ability-string {
-    border: 1px solid black;
-    margin: 5px;
-}

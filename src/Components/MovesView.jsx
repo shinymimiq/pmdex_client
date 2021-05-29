@@ -9,6 +9,8 @@
 import { useEffect, useState } from "react";
 import { P } from "../Api/apiGen";
 
+import { TYPE_COLOR } from "../Assets/PokemonTypes/PokemonTypeColour.js";
+
 const MovesView = (props) => {
   let moves = props.moves;
   // Each generation will have different move sets for a pokemon
@@ -82,9 +84,13 @@ const MovesListByCatagory = ({ moves_list }) => {
       {moves
         ? moves.map((m) => (
             <div key={m.id} className="flex justify-between">
-              <span>
+              <span
+                className="mx-2 px-1 py-0.5"
+                style={{ backgroundColor: `${TYPE_COLOR[m.type.name]}A0` }}
+              >
                 {m.names.find((n) => n.language.name === "zh-Hans").name}
               </span>
+              <span className="mx-2">{m.damage_class.name}</span>
               <span className="mx-2">Power: {m.power ? m.power : "-"}</span>
               <span className="mx-2">PP: {m.pp}</span>
               <span className="mx-2">
