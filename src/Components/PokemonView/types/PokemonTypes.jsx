@@ -1,7 +1,7 @@
-// import React from "react";
+import React from "react";
 
 import { useState, useEffect } from "react";
-import apiGen from "../../../Api/apiGen.js";
+import { P } from "../../../Api/apiGen.js";
 
 import { TYPE_COLOR } from "../../../Assets/PokemonTypes/PokemonTypeColour";
 
@@ -9,45 +9,35 @@ import "./PokemonTypes.css";
 
 // the pokemon type components to get type details,
 // and display type name with icon and color background?
-export const PokemonTypes = ({ pm }) => {
+export const PokemonTypes = ({ types }) => {
   const [types_detail, setTypes] = useState();
 
   // We know the types from pm object so we display it first
   // also we fetch the details in the background
-  const types_string = pm.types.map((type) => (
-    <span
-      key={type.type.name}
-      className="pm-type-string"
-      style={{ backgroundColor: `${TYPE_COLOR[type.type.name]}` }}
-    >
-      {type.type.name}
-      {types_detail ? (
-        <PokemonTypesView
-          type={types_detail.find((t) => t.name === type.type.name)}
-        />
-      ) : null}
-    </span>
-  ));
+  const types_string = types_detail
+    ? types_detail.map((type) => (
+        <span
+          key={type.name}
+          className="pm-type-string"
+          style={{ backgroundColor: `${TYPE_COLOR[type.name]}` }}
+        >
+          {type.names.find((n) => n.language.name === "en").name}
+        </span>
+      ))
+    : "";
 
-  // TODO: Can I make this function reuseable via custom hooks?
-  //       It is been used across different components
+  // <PokemonTypesView
+  // type={types_detail.find((t) => t.name === type.type.name)} />
+
   useEffect(() => {
-    const getTypes = async () => {
-      return Promise.all(
-        pm.types.map((t) => apiGen.getTypeByName(t.type.name))
-      );
-    };
-
-    async function run() {
-      try {
-        let res = await getTypes();
-        setTypes(res);
-      } catch (e) {
-        console.error(e);
-      }
-    }
-    run();
-  }, [pm.types]);
+    Promise.all(
+      types.map((t) => {
+        return P.resource(t.type.url);
+      })
+    )
+      .then((res) => setTypes(res))
+      .catch((e) => console.log(e));
+  }, [types]);
 
   return <div className="pokemon-types">{types_string}</div>;
 };
@@ -57,9 +47,9 @@ export const PokemonTypesView = () => {
   return (
     <div></div>
     // <div className="pokemon-type-view">
-      // This should be a hover view
-      // <div className="type-strengths">x2 ...</div>
-      // <div className="type-weakness">x0.5 ...</div>
+    // This should be a hover view
+    // <div className="type-strengths">x2 ...</div>
+    // <div className="type-weakness">x0.5 ...</div>
     // </div>
   );
 };

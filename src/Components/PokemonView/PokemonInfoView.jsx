@@ -27,7 +27,7 @@ export const PokemonInfoBasic = ({ pm }) => {
       </div>
       <div>
         <span>Type:</span>
-        <PokemonTypes pm={pm} />
+        <PokemonTypes types={pm.types} />
       </div>
       <span>Abilities:</span>
       <PokemonAbilities ab={pm.abilities} />
