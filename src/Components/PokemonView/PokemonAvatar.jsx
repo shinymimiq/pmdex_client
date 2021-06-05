@@ -6,9 +6,8 @@ const PokemonAvatar = ({ pm }) => {
   pm.types.map((type) => pmTypes.push(type.type.name));
 
   return (
-    <div className="pm-avatar w-full h-1/6">
-      <PokemonAvatarBackground types={pmTypes} />
-      <div className="pm-sprite-container relative flex-col z-10">
+    <div className="pm-avatar w-full h-40 relative">
+      <div className="pm-sprite-container absolute flex-col z-10">
         <img
           className="pm-sprite"
           src={pm.sprites.front_default}
@@ -21,13 +20,14 @@ const PokemonAvatar = ({ pm }) => {
           #{pm.id} {pm.species.name}
         </span>
       </div>
+      <PokemonAvatarBackground types={pmTypes} />
     </div>
   );
 };
 
 const PokemonAvatarBackground = ({ types }) => {
   return (
-    <div className="pm-avatar-background h-40 w-40 absolute flex z-0">
+    <div className="pm-avatar-background absolute top-0 left-0 h-40 w-40 flex z-0">
       <div
         className="pm-avatar-left w-1/2 rounded-tl-full"
         style={{ backgroundColor: `${TYPE_COLOR[types[0]]}` }}

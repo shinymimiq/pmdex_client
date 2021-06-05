@@ -11,7 +11,7 @@ export const Header = ({ searchHandleOnChange }) => {
   // "mx-3 text-purple-100 hover:bg-white hover:text-purple-500 h-full inline-block";
 
   return (
-    <div className="w-full bg-white h-20">
+    <div className="w-full bg-white h-20 -mt-20">
       <div className="mx-auto h-full bg-white" id="header">
         <div className="h-full flex items-center bg-coolDarkGray">
           <Link className="w-8 ml-6 mr-2" to="/">
