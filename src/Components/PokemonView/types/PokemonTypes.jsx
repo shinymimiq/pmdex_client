@@ -88,8 +88,8 @@ export const PokemonTypesContainer = ({ types }) => {
 
   return (
     <div className="pokemon-type-container hover-trigger flex">
-      <div className="">{types_string}</div>
-      <div className="hover-target fixed border-2 bg-white">
+      <div className="flex">{types_string}</div>
+      <div className="hover-target absolute left-56 border-2 bg-white">
         <div className="flex">
           <span>Weakness:</span>
           {weakness_types}

@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 import "../../Assets/iconfont.css";
 // import "./PokemonOverview.css";
 
-// Generate the Pokemon List view
-
 const PokemonOverview = ({ pms }) => {
   return (
     <div className="pokemon-overview flex flex-wrap justify-center">

@@ -11,6 +11,7 @@ import { MovesPage } from "./Pages/MovesPage";
 import { ItemsPage } from "./Pages/ItemsPage";
 
 import { ScrollToTopOnMount } from "./utils/ScrollToTop";
+import WithFooter from "./Components/WithFooter.component.jsx";
 
 const App = () => {
   return (
@@ -21,11 +22,9 @@ const App = () => {
         <div className="app-content h-full w-full mx-auto mt-0 overflow-y-auto flex-1">
           <Switch>
             <Route exact path="/(|pokemon)">
-              <PokemonOverview />
+              {WithFooter(PokemonOverview)}
             </Route>
-            <Route path="/pokemon/:pmID">
-              <PokemonPage />
-            </Route>
+            <Route path="/pokemon/:pmID">{WithFooter(PokemonPage)}</Route>
             <Route path="/moves">
               <MovesPage />
             </Route>
