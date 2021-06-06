@@ -23,9 +23,9 @@ export const PokemonPage = () => {
   }, [pmID]); // <-- Have to pass in [] here
 
   return (
-    <div className="w-full h-full mt-0">
+    <div className="w-full">
       {pokemon ? (
-        <div className="pokemon-page w-full h-screen flex-col flex-1 mt-0">
+        <div className="pokemon-page w-full flex-col flex-1 mt-0">
           <PokemonAvatar pm={pokemon} />
           <PokemonInfoBasic pm={pokemon} />
           {/* <PokemonInfoView pm={pokemon} /> */}
@@ -33,10 +33,9 @@ export const PokemonPage = () => {
             <PokemonBaseStats pm={pokemon} />
             <div className="pokemon-evo-chain border m-5">EVO CHAIN</div>
           </div>
-          <div className="pokemon-move-list min-h-1/3 max-h-1/2 overflow-y-scroll border m-5">
+          <div className="pokemon-move-list h-64 overflow-y-scroll border m-5">
             <MovesView moves={pokemon.moves} />
           </div>
-          <div className="border h-10 m-2 bg-blue-200"></div>
         </div>
       ) : (
         <LoadingPage />
